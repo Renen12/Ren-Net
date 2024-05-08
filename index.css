@@ -1,0 +1,87 @@
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+body {
+    background-color: rgb(141, 69, 69);
+}
+.hkk-betyg {
+    width: 10px;
+    margin-bottom: 0.5px;
+}
+.hkk {
+    display: inline;
+}
+.no-betyg {
+    width: 10px;
+    margin-bottom: 0.5px;
+}
+.no {
+    display: inline;
+}
+.so-betyg {
+    width: 10px;
+    margin-bottom: 0.5px;
+    margin-left: 1.5px;
+}
+.so {
+    display: inline;
+}
+.eng-betyg {
+    width: 10px;
+    margin-bottom: 0.5px;
+    margin-left: 1.5px;
+}
+.eng {
+    display: inline;
+}
+.idh-betyg {
+    width: 10px;
+    margin-bottom: 0.5px;
+    margin-left: 1.5px;
+}
+.idh {
+    display: inline;
+}
+.ma-betyg {
+    width: 10px;
+    margin-bottom: 0.5px;
+    margin-left: 1.5px;
+}
+.ma {
+    display: inline;
+}
+.språk-betyg {
+    width: 10px;
+    margin-bottom: 0.5px;
+    margin-left: 1.5px;
+}
+.språk {
+    display: inline;
+}
+.bl-betyg {
+    width: 10px;
+    margin-bottom: 0.5px;
+    margin-left: 1.5px;
+}
+.bl{
+    display: inline;
+}
+.sl-betyg {
+    width: 10px;
+    margin-bottom: 0.5px;
+    margin-left: 1.5px;
+}
+.sl{
+    display: inline;
+}
+.sv-betyg {
+    width: 10px;
+    margin-bottom: 0.5px;
+    margin-left: 1.5px;
+}
+.sv{
+    display: inline;
+}
