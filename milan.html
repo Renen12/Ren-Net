@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="milan.css">
+    <title>
+        Betygsuträknare
+    </title>
+</head>
+<body>
+    <script src="milan.js"></script>
+    <div class="content" id="content">
+        <h1>
+            Räkna ut ditt medelbetyg!
+        </h1>
+        <ul class="list">
+            <li class="hkk">Hemkunskap:</li> <input type="text" id="hkk"  class="hkk-betyg" maxlength="1"> </input>
+            <br>
+            <li class="no">NO:</li> <input type="text"  id="no" class="no-betyg" maxlength="1"> </input>
+            <br>
+            <li class="so">SO: </li> <input type="text" id="so" class="so-betyg" maxlength="1"> </input>
+            <br>
+            <li class="eng">Engelska: </li> <input type="text" id="eng" class="eng-betyg" maxlength="1"> </input>
+            <br>
+            <li class="idh">Idrott och hälsa: </li> <input type="text" id="idh" class="idh-betyg" maxlength="1"> </input>
+            <br>
+            <li class="ma">Matematik: </li> <input type="text" id="ma" class="ma-betyg" maxlength="1"> </input>
+            <br>
+            <li class="språk">Språk: </li> <input type="text" id="språk" class="språk-betyg" maxlength="1"> </input>
+            <br>
+            <li class="bl">Musik eller Bild: </li> <input type="text" id="bl" class="bl-betyg" maxlength="1"> </input>
+            <br>
+            <li class="sl">Slöjd: </li> <input type="text" id="sl" class="sl-betyg" maxlength="1"> </input>
+            <br>
+            <li class="sv">Svenska: </li> <input type="text" id="sv" class="sv-betyg" maxlength="1"> </input>
+        </ul>
+        <input type="submit" class="räkna" value="Räkna ut!" onclick="räknaut()">
+    </div>
+</body>
