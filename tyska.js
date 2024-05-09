@@ -51,6 +51,10 @@ let svara = document.getElementById("svara")
 let felsvar = 1;
 fråga.innerText = `Fråga 1: ${Object.keys(frågorochsvar)[0]}`
 document.getElementById("svara").onclick = () => {
+    if (Object.keys(frågorochsvar).length < index) {
+        alert("Du har svarat på alla frågor.")
+        window.location = "index.html"
+    }
     let svenskasvaret = frågorochsvar[Object.keys(frågorochsvar)[index - 1 ]]
     if ( /* Svenska svaret */frågorochsvar[Object.keys(frågorochsvar)[index - 1 ]].toLowerCase() == /* Användarens svar: */ svar.value.toLowerCase()) {
             // orkar inte ändra
@@ -65,10 +69,6 @@ document.getElementById("svara").onclick = () => {
         felsvar++;
         return
 
-    }
-    if (Object.keys(frågorochsvar).length < index) {
-        alert("Du har svarat på alla frågor.")
-        window.location = "index.html"
     }
     fråga.innerText = `Fråga ${index + 1}: ${Object.keys(frågorochsvar)[index]}`
     index++;
