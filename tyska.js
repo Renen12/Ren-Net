@@ -66,7 +66,7 @@ document.getElementById("svara").onclick = () => {
         return
 
     }
-    if (Object.keys(frågorochsvar).length > index) {
+    if (Object.keys(frågorochsvar).length < index) {
         alert("Du har svarat på alla frågor.")
         window.location = "index.html"
     }
