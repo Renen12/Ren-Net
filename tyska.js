@@ -72,4 +72,5 @@ document.getElementById("svara").onclick = () => {
         window.location = "index.html"
     }
     index++;
+    svar.value = ""
 }
