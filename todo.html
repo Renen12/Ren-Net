@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<style>
+    body {
+        background-color: gray;
+    }
+</style>
+<head>
+    <title>Todo software</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function addTodo() {
+            let answer = document.getElementById("input").value
+            if (answer.trim() == "") {
+                document.getElementById("title").innerText = "Invalid todo!"
+                return
+            }
+            document.body.innerHTML = document.body.innerHTML + "<br>"
+            document.body.innerHTML = document.body.innerHTML + `<input type="checkbox" id="todo"> ${answer} </input>`
+        }
+
+    </script>
+    <h1 id="title" class="title">Add new todo:</h1>
+    <input type="text" id="input" class="input">
+    <input type="submit" onclick="addTodo()" value="Add" class="add">
+</body>
