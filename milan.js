@@ -45,12 +45,13 @@ function räknaut() {
     if (felaktigabetyg == alla.length) {
         alert("Du måste fylla i något betyg.")
         allafelaktiga = true
-        return
     }
     if (felaktigabetyg > 0 && allafelaktiga == false) {
         alert(`Du har ${felaktigabetyg} felaktiga betyg! Felaktiga betyg inkluderas inte i medelvärdet.`)
     }
-    const uträknatmedelvärde = Math.round(medelvärde / alla.length)
-    localStorage.setItem("uträknatmedelvärde", uträknatmedelvärde)
-    window.location = "resultat.html"
+    if (allafelaktiga != true) {
+        const uträknatmedelvärde = Math.round(medelvärde / alla.length)
+        localStorage.setItem("uträknatmedelvärde", uträknatmedelvärde)
+        window.location = "resultat.html"
+    }
 }
