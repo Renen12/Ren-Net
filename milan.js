@@ -45,6 +45,7 @@ function räknaut() {
     if (felaktigabetyg == alla.length) {
         alert("Du måste fylla i något betyg.")
         allafelaktiga = true
+        return
     }
     if (felaktigabetyg > 0 && allafelaktiga == false) {
         alert(`Du har ${felaktigabetyg} felaktiga betyg! Felaktiga betyg inkluderas inte i medelvärdet.`)
