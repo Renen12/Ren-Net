@@ -1,5 +1,5 @@
 document.getElementById("byt").onclick = () => {
-    window.location = "svensk-tyska.html"
+    window.location = "tyska.html"
 }
 let frågorochsvar = {
 "der Tisch":  "bordet",
@@ -51,10 +51,10 @@ let index = 1
 let svar = document.getElementById("svar")
 let svara = document.getElementById("svara")
 let felsvar = 1;
-fråga.innerText = `Fråga 1: ${Object.keys(frågorochsvar)[0]}`
+fråga.innerText = `Fråga 1: ${Object.values(frågorochsvar)[0]}`
 document.getElementById("svara").onclick = () => {
-    let svenskasvaret = frågorochsvar[Object.keys(frågorochsvar)[index - 1 ]]
-    if ( /* Svenska svaret */frågorochsvar[Object.keys(frågorochsvar)[index - 1 ]].toLowerCase().trim() == /* Användarens svar: */ svar.value.toLowerCase().trim()) {
+    let svenskasvaret = Object.keys(frågorochsvar)[index - 1 ]
+    if ( /* tyska svaret */Object.keys(frågorochsvar)[index - 1 ].toLowerCase().trim() == /* Användarens svar: */ svar.value.toLowerCase().trim()) {
             // orkar inte ändra
     } else {
         if (felsvar == 3) {
@@ -68,7 +68,7 @@ document.getElementById("svara").onclick = () => {
         return
 
     }
-    fråga.innerText = `Fråga ${index + 1}: ${Object.keys(frågorochsvar)[index]}`
+    fråga.innerText = `Fråga ${index + 1}: ${Object.values(frågorochsvar)[index]}`
     if (fråga.contains(undefined)) {
         alert("Du har svarat på alla frågor.")
         window.location = "index.html"
