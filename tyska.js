@@ -18,16 +18,16 @@ let frågorochsvar = {
 
 "die Schultasche":  "skolväskan",
 
-"Der Hase springt": "Haren hoppar.",
+"Der Hase springt": "Haren hoppar",
 
-"Die Katze liebt  Mäuse": "Katten älskar möss.",
+"Die Katze liebt  Mäuse": "Katten älskar möss",
 
-"Die Kuh gibt Milch": "Kon ger mjölk.",
+"Die Kuh gibt Milch": "Kon ger mjölk",
 
-"der Hund": " hunden",
+"der Hund": "hunden",
 
 "die Katze": "katten",
-"Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag, Sonntag": "Mondag, Tisdag, Onsdag, Torsdag, Fredag, Lördag, Söndag",
+"Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag, Sonntag": "Måndag, Tisdag, Onsdag, Torsdag, Fredag, Lördag, Söndag",
 
 "das Wochenende": "Helgen",
 
@@ -52,7 +52,7 @@ let felsvar = 1;
 fråga.innerText = `Fråga 1: ${Object.keys(frågorochsvar)[0]}`
 document.getElementById("svara").onclick = () => {
     let svenskasvaret = frågorochsvar[Object.keys(frågorochsvar)[index - 1 ]]
-    if ( /* Svenska svaret */frågorochsvar[Object.keys(frågorochsvar)[index - 1 ]].toLowerCase() == /* Användarens svar: */ svar.value.toLowerCase()) {
+    if ( /* Svenska svaret */frågorochsvar[Object.keys(frågorochsvar)[index - 1 ]].toLowerCase().trim() == /* Användarens svar: */ svar.value.toLowerCase().trim()) {
             // orkar inte ändra
     } else {
         if (felsvar == 3) {
