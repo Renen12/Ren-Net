@@ -22,7 +22,7 @@ let frågorochsvar = {
 
 "Der Hase springt": "Haren hoppar",
 
-"Die Katze liebt  Mäuse": "Katten älskar möss",
+"Die Katze liebt Mäuse": "Katten älskar möss",
 
 "Die Kuh gibt Milch": "Kon ger mjölk",
 
