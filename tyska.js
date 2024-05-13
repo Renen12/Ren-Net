@@ -52,7 +52,7 @@ let svar = document.getElementById("svar")
 let svara = document.getElementById("svara")
 let felsvar = 1;
 fråga.innerText = `Fråga 1: ${Object.keys(frågorochsvar)[0]}`
-    if (fråga.contains(undefined)) {
+    if (index > Object.keys(frågorochsvar).length) {
         alert("Du har svarat på alla frågor.")
         window.location = "index.html"
     }
