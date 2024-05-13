@@ -52,6 +52,10 @@ let svar = document.getElementById("svar")
 let svara = document.getElementById("svara")
 let felsvar = 1;
 fråga.innerText = `Fråga 1: ${Object.values(frågorochsvar)[0]}`
+    if (fråga.contains(undefined)) {
+        alert("Du har svarat på alla frågor.")
+        window.location = "index.html"
+    }
 document.getElementById("svara").onclick = () => {
     let svenskasvaret = Object.keys(frågorochsvar)[index - 1 ]
     if ( /* tyska svaret */Object.keys(frågorochsvar)[index - 1 ].toLowerCase().trim() == /* Användarens svar: */ svar.value.toLowerCase().trim()) {
@@ -69,10 +73,6 @@ document.getElementById("svara").onclick = () => {
 
     }
     fråga.innerText = `Fråga ${index + 1}: ${Object.values(frågorochsvar)[index]}`
-    if (fråga.contains(undefined)) {
-        alert("Du har svarat på alla frågor.")
-        window.location = "index.html"
-    }
     index++;
     svar.value = ""
 }
