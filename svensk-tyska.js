@@ -32,7 +32,10 @@ let frågorochsvar = {
 "Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag, Sonntag": "Måndag, Tisdag, Onsdag, Torsdag, Fredag, Lördag, Söndag",
 
 "das Wochenende": "Helgen",
-
+"Tiere": "Djur",
+"Im Klassenzimmer": "I klassrummet",
+"Das Jahr": "Året",
+"Familie": "Familj",
 "der Winter, der Frühling, der Sommer, der Herbst": "vintern, våren, sommaren, hösten",
 "die Mutter, der Vater, der Sohn, die Tochter, die Oma, der Opa, der Bruder, die Schwester": "Mamman, Pappan, Sonen, Dottern, Farmorn/Mormorn, Farfarn/Morfarn, Brodern, Systern",
 "Ich habe": "Jag har",
