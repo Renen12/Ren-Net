@@ -55,11 +55,11 @@ let svar = document.getElementById("svar")
 let svara = document.getElementById("svara")
 let felsvar = 1;
 fråga.innerText = `Fråga 1: ${Object.keys(frågorochsvar)[0]}`
+document.getElementById("svara").onclick = () => {
     if (index > Object.keys(frågorochsvar).length) {
         alert("Du har svarat på alla frågor.")
         window.location = "index.html"
     }
-document.getElementById("svara").onclick = () => {
     let svenskasvaret = frågorochsvar[Object.keys(frågorochsvar)[index - 1 ]]
     if ( /* Svenska svaret */frågorochsvar[Object.keys(frågorochsvar)[index - 1 ]].toLowerCase().trim() == /* Användarens svar: */ svar.value.toLowerCase().trim()) {
             // orkar inte ändra
