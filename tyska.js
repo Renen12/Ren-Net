@@ -33,7 +33,7 @@ let frågorochsvar = {
 
 "das Wochenende": "Helgen",
 "Tiere": "Djur",
-"Im Klassenzimmer": "I klassrummet",
+"im Klassenzimmer": "I klassrummet",
 "Das Jahr": "Året",
 "Familie": "Familj",
 "der Winter, der Frühling, der Sommer, der Herbst": "vintern, våren, sommaren, hösten",
