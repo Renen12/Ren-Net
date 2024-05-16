@@ -1,3 +1,7 @@
+let nothing = true
+if (nothing !== false) {
+    window.location = "finnsingenting.html"
+}
 document.getElementById("byt").onclick = () => {
     window.location = "svensk-tyska.html"
 }
