@@ -31,4 +31,5 @@ body {
   background-image: url(homepage.png);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: right;
 }
