@@ -1,3 +1,5 @@
+document.body.style.backgroundColor = "#808080"
+// ändra om det kommer något till prov
 let nothing = true
 if (nothing !== false) {
     window.location = "finnsingenting.html"
