@@ -56,7 +56,7 @@ let svara = document.getElementById("svara")
 let felsvar = 1;
 fråga.innerText = `Fråga 1: ${Object.values(frågorochsvar)[0]}`
 document.getElementById("svara").onclick = () => {
-    if (index > Object.keys(frågorochsvar).length) {
+    if (index +1 > Object.keys(frågorochsvar).length) {
         alert("Du har svarat på alla frågor.")
         window.location = "index.html"
     }
