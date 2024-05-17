@@ -1,7 +1,7 @@
 // ändra om det kommer något till prov
 document.body.style.backgroundColor = "#808080"
 let nothing = true
-if (nothing !== false) {
+if (nothing) {
     window.location = "finnsingenting.html"
 }
 document.getElementById("byt").onclick = () => {
