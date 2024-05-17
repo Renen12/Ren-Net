@@ -12,12 +12,6 @@ fråga.innerText = `Fråga 1: ${Object.keys(frågorochsvar)[0]}`;
 
 // Add click event listener to the "svara" button
 document.getElementById("svara").onclick = () => {
-    // Check if all questions have been answered
-    if (index +1> Object.keys(frågorochsvar).length) {
-        alert("Du har svarat på alla frågor.");
-        window.location = "index.html";
-        return;
-    }
 
     // Get the correct answer for the current question
     let riktigasvaret = frågorochsvar[Object.keys(frågorochsvar)[index - 1]];
@@ -25,6 +19,10 @@ document.getElementById("svara").onclick = () => {
     // Check if the user's answer is correct
     if (riktigasvaret.toLowerCase().trim() === svar.value.toLowerCase().trim()) {
         // Correct answer: move to the next question
+        if (index +1 > Object.keys(frågorochsvar).length) {
+            alert("Du har svarat på alla frågor.")
+            window.location = "index.html"
+        }
         fråga.innerText = `Fråga ${index + 1}: ${Object.keys(frågorochsvar)[index]}`;
         index++;
         svar.value = "";
