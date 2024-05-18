@@ -63,10 +63,6 @@ document.getElementById("ladda").onclick = () => {
     document.getElementById("ladda").innerText = "Ladda"
     laddningsframgång++
     if (laddningsframgång === 2) {
-        if (document.getElementById("ladda").value.trim() == "") {
-            alert("Du kan inte ladda ett tomt prov.")
-            return
-        }
         localStorage.setItem("frågorochsvar", document.getElementById("laddatext").value)
         window.location = "prov-efterifyllning.html"
     }
