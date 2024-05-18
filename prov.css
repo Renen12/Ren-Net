@@ -1,3 +1,23 @@
 .starta {
     position: fixed;
 }
+.dela {
+    position:absolute;
+    top:10px;
+    right: 10px;
+}
+.ladda {
+    position:absolute;
+    top:40px;
+    right: 10px;
+}
+.laddatext {
+    position:absolute;
+    top:70px;
+    right: 10px;
+    display: none;
+}
+body {
+    background-color: #33474b;
+    color: #cad3f5;
+}
