@@ -1,4 +1,10 @@
 // Retrieve and parse the questions and answers from localStorage
+try {
+    let temp = JSON.parse(localStorage.getItem("frågorochsvar"));
+} catch (error) {
+    alert("Ogiltigt prov.")
+    window.location = "prov.html"
+}
 let frågorochsvar = JSON.parse(localStorage.getItem("frågorochsvar"));
 
 // Initialize elements and variables

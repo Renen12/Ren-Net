@@ -53,7 +53,7 @@ document.getElementById("dela").onclick = () => {
         }
     });
     if (Object.keys(frågorochsvar).length <= 0) {
-        alert("Du kan inte fylla i ett tomt prov.")
+        alert("Du kan inte dela ett tomt prov.")
         return
     }
     navigator.clipboard.writeText(JSON.stringify(frågorochsvar))
