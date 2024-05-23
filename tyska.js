@@ -1,7 +1,7 @@
 document.body.style.backgroundColor = "#808080"
 // ändra om det kommer något till prov
 let nothing = true
-if (nothing !== false) {
+if (nothing) {
     window.location = "finnsingenting.html"
 }
 document.getElementById("byt").onclick = () => {
@@ -62,10 +62,6 @@ let svara = document.getElementById("svara")
 let felsvar = 1;
 fråga.innerText = `Fråga 1: ${Object.keys(frågorochsvar)[0]}`
 document.getElementById("svara").onclick = () => {
-    if (index +1 > Object.keys(frågorochsvar).length) {
-        alert("Du har svarat på alla frågor.")
-        window.location = "index.html"
-    }
     let svenskasvaret = frågorochsvar[Object.keys(frågorochsvar)[index - 1 ]]
     if ( /* Svenska svaret */frågorochsvar[Object.keys(frågorochsvar)[index - 1 ]].toLowerCase().trim() == /* Användarens svar: */ svar.value.toLowerCase().trim()) {
             // orkar inte ändra
@@ -80,6 +76,10 @@ document.getElementById("svara").onclick = () => {
         felsvar++;
         return
 
+    }
+    if (index +1 > Object.keys(frågorochsvar).length) {
+        alert("Du har svarat på alla frågor.")
+        window.location = "index.html"
     }
     fråga.innerText = `Fråga ${index + 1}: ${Object.keys(frågorochsvar)[index]}`
     index++;

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gör ditt eget prov!</title>
+    <script src="prov.js" defer></script>
+    <link rel="stylesheet" href="prov.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <h3>Gör ditt eget prov!</h3>
+    <input type="text" name="Fråga" id="fråga-indata">
+    <input type="button" value="Lägg till" id="läggtill" onclick="onnewquestion()">
+    <br><br>
+    <input type="submit" name="Starta" id="starta" value="Starta provet" class="starta" onclick="onexamstart()">
+    <button class="dela" id="dela">Dela ditt prov</button>
+    <button class="ladda" id="ladda">Ladda någon annans prov</button>
+    <input type="text" name="laddatext" id="laddatext" class="laddatext">
+</body>
+</html>
