@@ -43,7 +43,7 @@ function räknaut() {
        }
     });
     if (felaktigabetyg == alla.length) {
-        alert("Du måste fylla i något betyg.")
+        alert("Du måste skriva i några icke felaktiga betyg.")
         allafelaktiga = true
     }
     if (felaktigabetyg > 0 && allafelaktiga == false) {
