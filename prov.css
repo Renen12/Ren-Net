@@ -16,6 +16,7 @@
     position: absolute;
     top: 70px;
     right: 10px;
+    width: 20vw;
     display: none;
 }
 body {
