@@ -3,10 +3,39 @@
     <link rel="stylesheet" href="index.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $('#inloggadsom').ready(async function () {
+            document.getElementById("inloggadsom").onclick = async () => {
+                if (confirm("Vill du ta bort ditt konto?")) {
+                    if (pb.authStore.model.username == undefined) {
+                        alert("Ogiltig session!")
+                        pb.authStore.clear();
+                    }
+                    const records = await pb.collection('posts').getFullList({
+                            sort: '+created',
+                        });
+                        records.forEach((post) => {
+                            if (post.username == pb.authStore.model.username) {
+                                pb.collection('posts').delete(post.id);
+                            }
+                        });
+                        await pb.collection('users').delete(pb.authStore.model.id);
+                        refreshPosts()
+                        pb.authStore.clear();
+                        localStorage.setItem("loggedin", false)
+                        window.location = "signup.html"
+                }
+            }
+        });
+
+
+
+    </script>
 </head>
 <script src="https://cdn.jsdelivr.net/gh/pocketbase/js-sdk@latest/dist/pocketbase.umd.js"></script>
 <script type="text/javascript">
-    if (localStorage.getItem("loggedin") == null) {
+    if (localStorage.getItem("loggedin") == "false") {
         try {
             alert("Du är inte inloggad!")
             window.location = "signup.html"
