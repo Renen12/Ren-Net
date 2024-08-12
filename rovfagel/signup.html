@@ -29,8 +29,12 @@
                 "password": document.getElementById("password").value,
                 "passwordConfirm": document.getElementById("password").value
             };
-
-            const record = await pb.collection('users').create(data);
+            try {
+                const record = await pb.collection('users').create(data);
+            } catch (error) {
+                alert("Du kan inte skapa ett konto som redan finns.")
+                return
+            }
             const authData = await pb.collection('users').authWithPassword(
                 document.getElementById("username").value,
                 document.getElementById("password").value,
