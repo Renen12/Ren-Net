@@ -22,3 +22,8 @@ body {
     margin-top: 2;
     margin-right: 20;
 }
+.messagesdiv {
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+}

@@ -22,3 +22,11 @@ body {
     margin-left: -200;
     width: 200;
 }
+.switchtologin {
+    display: flex;
+    justify-content: right;
+    align-items: flex-start;
+}
+.switchtosignup {
+    
+}

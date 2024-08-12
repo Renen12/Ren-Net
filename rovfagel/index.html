@@ -83,7 +83,8 @@
     <p id="inloggadsom" class="inloggadsom"></p>
     <button onclick="window.location = 'signup.html'" value="Skapa konto">Skapa konto</button>
     <button onclick="window.location = 'login.html'" value="Logga in">Logga in</button>
+    <button onclick="pb.authStore.clear(); localStorage.setItem('loggedin', false); window.location = 'login.html'">Logga ut</button>
 </div>
-<div class="messages">
+<div class="messagesdiv">
     <p id="messages" white-space: pre-line></p>
 </div>
