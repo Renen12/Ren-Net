@@ -17,6 +17,12 @@
     </div>
     <script>
         document.getElementById("login").onclick = async function () {
+            let regex = /^[0-9A-Za-z]{6,16}$/;
+            let username = document.getElementById("username").value
+            if (username.match(regex) == null) {
+                alert("Ogiltigt användarnamn!")
+                return
+            }
             const pb = new PocketBase('https://ren-net.pockethost.io/');
             const authData = await pb.collection('users').authWithPassword(
                 document.getElementById("username").value,
