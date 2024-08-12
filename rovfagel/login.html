@@ -24,12 +24,17 @@
                 return
             }
             const pb = new PocketBase('https://ren-net.pockethost.io/');
-            const authData = await pb.collection('users').authWithPassword(
+            try {
+                const authData = await pb.collection('users').authWithPassword(
                 document.getElementById("username").value,
                 document.getElementById("password").value,
             );
             localStorage.setItem("loggedin", true);
             window.location = "index.html"
+            } catch (error) {
+                alert("Fel lösenord/användarnamn!");
+                document.getElementById("password").value = "";
+            }
         }
     </script>
 </body>
