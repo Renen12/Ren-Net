@@ -1,0 +1,12 @@
+.content {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.skicka {
+    margin-top: 50;
+    align-items: start;
+    justify-content: flex-end;
+    margin-left: -380;
+}
