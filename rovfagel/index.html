@@ -2,6 +2,7 @@
     <title>Rovfågel</title>
     <link rel="stylesheet" href="index.css">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
 </head>
 <script src="https://cdn.jsdelivr.net/gh/pocketbase/js-sdk@latest/dist/pocketbase.umd.js"></script>
 <script type="text/javascript">
@@ -34,6 +35,7 @@
         };
 
         const record = await pb.collection('posts').create(data);
+        document.getElementById("chatta").value = "";
         refreshPosts();
     }
     pb.collection('posts').subscribe('*', function (e) {
@@ -46,6 +48,10 @@
     <input id="chatta" type="text" autocomplete="off">
     <input type="button" value="Skicka" onclick="sendmessage()">
     </input>
+</div>
+<div class="knappar">
+    <button onclick="window.location = 'signup.html'" value="Skapa konto">Skapa konto</button>
+    <button onclick="window.location = 'login.html'" value="Logga in">Logga in</button>
 </div>
 <div class="messages">
     <p id="messages" white-space: pre-line></p>

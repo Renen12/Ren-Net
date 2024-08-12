@@ -13,3 +13,8 @@ body {
     bottom: 0%;
     width: 500%;
 }
+.knappar {
+    display: flex;
+    justify-content: right;
+    align-items: flex-start;
+}
