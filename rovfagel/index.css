@@ -1,0 +1,15 @@
+.välkommen {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+body {
+    background-color: gray;
+}
+.chatta {
+    height:40px;
+    position: fixed;
+    left: 0;
+    bottom: 0%;
+    width: 500%;
+}

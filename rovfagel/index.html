@@ -1,0 +1,52 @@
+<head>
+    <title>Rovfågel</title>
+    <link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8">
+</head>
+<script src="https://cdn.jsdelivr.net/gh/pocketbase/js-sdk@latest/dist/pocketbase.umd.js"></script>
+<script type="text/javascript">
+    if (localStorage.getItem("loggedin") == null) {
+        try {
+            alert("Du är inte inloggad!")
+            window.location = "signup.html"
+        } catch (error) {
+            window.location = "signup.html"
+        }
+    }
+    let url = "https://ren-net.pockethost.io/"
+    const pb = new PocketBase(url);
+    async function refreshPosts() {
+        const records = await pb.collection('posts').getFullList({
+            sort: '+created',
+        });
+        let postsstring = "";
+        records.forEach(post => {
+            postsstring = postsstring + "<br>" + post.username + ":  " + post.text;
+        });
+        document.getElementById("messages").innerHTML = postsstring
+    }
+    async function sendmessage() {
+        let msg = document.getElementById("chatta").value;
+        let username = pb.authStore.model.username;
+        const data = {
+            "text": msg,
+            "username": username,
+        };
+
+        const record = await pb.collection('posts').create(data);
+        refreshPosts();
+    }
+    pb.collection('posts').subscribe('*', function (e) {
+        refreshPosts()
+    });
+    document.onload = refreshPosts();
+</script>
+<h1 class="välkommen">Välkommen till rovfågel!</h1>
+<div class="chatta">
+    <input id="chatta" type="text" autocomplete="off">
+    <input type="button" value="Skicka" onclick="sendmessage()">
+    </input>
+</div>
+<div class="messages">
+    <p id="messages" white-space: pre-line></p>
+</div>
