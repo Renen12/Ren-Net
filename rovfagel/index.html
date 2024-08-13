@@ -62,7 +62,7 @@
         });
         let postsstring = "";
         records.forEach(post => {
-            postsstring = postsstring + "<br>" + post.username + ":  " + post.text;
+            postsstring = postsstring + "<br>"  + post.username + ":  " + post.text.replace("<", "&lt").replace(">", "&gt");
         });
         document.getElementById("messages").innerHTML = postsstring
         document.getElementById("inloggadsom").innerHTML = `Inloggad som ${pb.authStore.model.username || "Inte inloggad"}`
