@@ -36,6 +36,14 @@
 </head>
 <script src="https://cdn.jsdelivr.net/gh/pocketbase/js-sdk@latest/dist/pocketbase.umd.js"></script>
 <script type="text/javascript">
+        if (localStorage.getItem("loggedin") !== "true") {
+        try {
+            alert("Du är inte inloggad!")
+            window.location = "signup.html"
+        } catch (error) {
+            window.location = "signup.html"
+        }
+    }
     let notifs = false;
     Notification.requestPermission().then((result) => {
         if (result != "granted") {
@@ -45,14 +53,6 @@
             notifs = true
         }
     });
-    if (localStorage.getItem("loggedin") !== "true") {
-        try {
-            alert("Du är inte inloggad!")
-            window.location = "signup.html"
-        } catch (error) {
-            window.location = "signup.html"
-        }
-    }
     let url = "https://ren-net.pockethost.io/"
     const pb = new PocketBase(url);
     document.onload = refreshPosts();
