@@ -33,7 +33,7 @@
             localStorage.setItem("loggedin", "true");
             window.location = "index.html"
             } catch (error) {
-                alert("Fel lösenord/användarnamn!");
+                alert("Fel lösenord/användarnamn!   " + error);
                 document.getElementById("password").value = "";
             }
         }
