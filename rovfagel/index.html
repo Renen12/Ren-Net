@@ -81,15 +81,19 @@
     }
     pb.collection('posts').subscribe('*', async function (e) {
         refreshPosts()
-        navigator.serviceWorker.register('sw.js');
+        try {
+            navigator.serviceWorker.register('sw.js');
         if (e.record.username !== pb.authStore.model.username) {
             Notification.requestPermission(function (result) {
-                if (result === 'granted') {
+                if (result === 'granted' && notifs == true) {
                     navigator.serviceWorker.ready.then(function (registration) {
                         registration.showNotification(e.record.username + ": " + e.record.text);
                     });
                 }
             });
+        }
+        } catch (error) {
+            console.warn("Warning: something went wrong with the notifications: " + error);
         }
     });
 </script>
