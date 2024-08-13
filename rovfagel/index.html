@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
+
         $('#inloggadsom').ready(async function () {
             document.getElementById("inloggadsom").onclick = async () => {
                 if (confirm("Vill du ta bort ditt konto?")) {
@@ -13,18 +14,18 @@
                         pb.authStore.clear();
                     }
                     const records = await pb.collection('posts').getFullList({
-                            sort: '+created',
-                        });
-                        records.forEach((post) => {
-                            if (post.username == pb.authStore.model.username) {
-                                pb.collection('posts').delete(post.id);
-                            }
-                        });
-                        await pb.collection('users').delete(pb.authStore.model.id);
-                        refreshPosts()
-                        pb.authStore.clear()
-                        localStorage.setItem("loggedin", false)
-                        window.location = "signup.html"
+                        sort: '+created',
+                    });
+                    records.forEach((post) => {
+                        if (post.username == pb.authStore.model.username) {
+                            pb.collection('posts').delete(post.id);
+                        }
+                    });
+                    await pb.collection('users').delete(pb.authStore.model.id);
+                    refreshPosts()
+                    pb.authStore.clear()
+                    localStorage.setItem("loggedin", false)
+                    window.location = "signup.html"
                 }
             }
         });
@@ -35,6 +36,15 @@
 </head>
 <script src="https://cdn.jsdelivr.net/gh/pocketbase/js-sdk@latest/dist/pocketbase.umd.js"></script>
 <script type="text/javascript">
+    let notifs = false;
+    Notification.requestPermission().then((result) => {
+            if (result != "granted") {
+                alert("Vi skulle väldigt gärna vilja ge dig information om nya meddelanden!")
+                notifs = false
+            } else {
+                notifs = true
+            }
+        });
     if (localStorage.getItem("loggedin") == "false") {
         try {
             alert("Du är inte inloggad!")
@@ -69,8 +79,9 @@
         document.getElementById("chatta").value = "";
         refreshPosts();
     }
-    pb.collection('posts').subscribe('*', function (e) {
+    pb.collection('posts').subscribe('*', async function (e) {
         refreshPosts()
+        const notification = new Notification("Nytt meddelande!", { body: e.record.text });
     });
 </script>
 <h1 class="välkommen">Välkommen till rovfågel!</h1>
@@ -83,7 +94,9 @@
     <p id="inloggadsom" class="inloggadsom"></p>
     <button onclick="window.location = 'signup.html'" value="Skapa konto">Skapa konto</button>
     <button onclick="window.location = 'login.html'" value="Logga in">Logga in</button>
-    <button onclick="pb.authStore.clear(); localStorage.setItem('loggedin', false); window.location = 'login.html'">Logga ut</button>
+    <button
+        onclick="pb.authStore.clear(); localStorage.setItem('loggedin', false); window.location = 'login.html'">Logga
+        ut</button>
 </div>
 <div class="messagesdiv">
     <p id="messages" white-space: pre-line></p>
