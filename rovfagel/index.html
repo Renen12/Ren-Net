@@ -38,13 +38,13 @@
 <script type="text/javascript">
     let notifs = false;
     Notification.requestPermission().then((result) => {
-            if (result != "granted") {
-                alert("Vi skulle väldigt gärna vilja ge dig information om nya meddelanden!")
-                notifs = false
-            } else {
-                notifs = true
-            }
-        });
+        if (result != "granted") {
+            alert("Vi skulle väldigt gärna vilja ge dig information om nya meddelanden!")
+            notifs = false
+        } else {
+            notifs = true
+        }
+    });
     if (localStorage.getItem("loggedin") == "false") {
         try {
             alert("Du är inte inloggad!")
@@ -81,7 +81,14 @@
     }
     pb.collection('posts').subscribe('*', async function (e) {
         refreshPosts()
-        const notification = new Notification("Nytt meddelande!", { body: e.record.text });
+        navigator.serviceWorker.register('sw.js');
+        Notification.requestPermission(function (result) {
+            if (result === 'granted') {
+                navigator.serviceWorker.ready.then(function (registration) {
+                    registration.showNotification(e.record.text);
+                });
+            }
+        });
     });
 </script>
 <h1 class="välkommen">Välkommen till rovfågel!</h1>
