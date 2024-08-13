@@ -12,6 +12,7 @@ body {
     left: 0;
     bottom: 0%;
     width: 500%;
+    margin-top: -50;
 }
 .knappar {
     display: flex;
@@ -21,6 +22,10 @@ body {
 .inloggadsom {
     margin-top: 2;
     margin-right: 20;
+}
+.chattbox {
+    width: 60vw;
+    margin-top: -50;
 }
 .messagesdiv {
     display: flex;
