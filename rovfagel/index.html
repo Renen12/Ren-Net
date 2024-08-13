@@ -22,7 +22,7 @@
                         });
                         await pb.collection('users').delete(pb.authStore.model.id);
                         refreshPosts()
-                        pb.authStore.clear();
+                        pb.authStore.clear()
                         localStorage.setItem("loggedin", false)
                         window.location = "signup.html"
                 }
@@ -45,6 +45,7 @@
     }
     let url = "https://ren-net.pockethost.io/"
     const pb = new PocketBase(url);
+    document.onload = refreshPosts();
     async function refreshPosts() {
         const records = await pb.collection('posts').getFullList({
             sort: '+created',
@@ -71,7 +72,6 @@
     pb.collection('posts').subscribe('*', function (e) {
         refreshPosts()
     });
-    document.onload = refreshPosts();
 </script>
 <h1 class="välkommen">Välkommen till rovfågel!</h1>
 <div class="chatta">
