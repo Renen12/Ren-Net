@@ -83,12 +83,7 @@
         refreshPosts()
         navigator.serviceWorker.register('sw.js');
         if (e.record.username !== pb.authStore.model.username) {
-            if (Notification.permission == "granted") {
-                notifs = true
-                registration.showNotification(e.record.text);
-            }
-            if (notifs !== true) {
-                Notification.requestPermission(function (result) {
+            Notification.requestPermission(function (result) {
                 if (result === 'granted') {
                     navigator.serviceWorker.ready.then(function (registration) {
                         registration.showNotification(e.record.text);
@@ -96,7 +91,6 @@
                     });
                 }
             });
-            }
         }
     });
 </script>

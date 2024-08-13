@@ -18,7 +18,7 @@
     </div>
     <script>
         document.getElementById("login").onclick = async function () {
-            let regex = /^[0-9A-Za-z]{6,16}$/;
+            let regex = /^[0-9A-Za-z]{0,16}$/;
             let username = document.getElementById("username").value
             if (username.match(regex) == null) {
                 alert("Ogiltigt användarnamn!")
