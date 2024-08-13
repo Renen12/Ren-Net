@@ -55,6 +55,7 @@
     });
     let url = "https://ren-net.pockethost.io/"
     const pb = new PocketBase(url);
+    pb.autoCancellation(false);
     document.onload = refreshPosts();
     async function refreshPosts() {
         const records = await pb.collection('posts').getFullList({

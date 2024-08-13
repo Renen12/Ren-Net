@@ -25,6 +25,7 @@
                 return
             }
             const pb = new PocketBase('https://ren-net.pockethost.io/');
+            pb.autoCancellation(false);
             try {
                 const authData = await pb.collection('users').authWithPassword(
                 document.getElementById("username").value,

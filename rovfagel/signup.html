@@ -25,6 +25,7 @@
                 return
             }
             const pb = new PocketBase('https://ren-net.pockethost.io/');
+            pb.autoCancellation(false);
             const data = {
                 "username": document.getElementById("username").value,
                 "password": document.getElementById("password").value,
