@@ -22,7 +22,7 @@
                         });
                         await pb.collection('users').delete(pb.authStore.model.id);
                         refreshPosts()
-                        pb.authStore.clear();
+                        pb.authStore.clear()
                         localStorage.setItem("loggedin", false)
                         window.location = "signup.html"
                 }
@@ -71,8 +71,29 @@
     pb.collection('posts').subscribe('*', function (e) {
         refreshPosts()
     });
-    document.onload = refreshPosts();
+    document.onload = () => {
+        refreshPosts();
+    }
 </script>
+<script src="sw.js"> </script>
+<script> 
+        Notification.requestPermission().then(function(permission) {
+  if (permission === 'granted') {
+    navigator.serviceWorker.register('sw.js')
+        .then(function(registration) {
+            registration.pushManager.subscribe({userVisibleOnly: true})
+            self.addEventListener('push', function(event) {
+  const title = 'New Message';
+  const options = {
+    body: 'Hello, world!',
+  };
+event.waitUntil(self.registration.showNotification(title, options));
+});
+        });
+  } else {
+    alert("Tillåt notifikationer för att följa med vad som händer!")
+  }
+});</script>
 <h1 class="välkommen">Välkommen till rovfågel!</h1>
 <div class="chatta">
     <input id="chatta" type="text" autocomplete="off">
