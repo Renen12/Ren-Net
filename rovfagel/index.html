@@ -65,7 +65,7 @@
             postsstring = postsstring + "<br>" + post.username + ":  " + post.text;
         });
         document.getElementById("messages").innerHTML = postsstring
-        document.getElementById("inloggadsom").innerHTML = `Inloggad som ${pb.authStore.model.username}`
+        document.getElementById("inloggadsom").innerHTML = `Inloggad som ${pb.authStore.model.username || "Inte inloggad"}`
     }
     async function sendmessage() {
         let msg = document.getElementById("chatta").value;
