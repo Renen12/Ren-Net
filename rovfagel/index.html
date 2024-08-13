@@ -86,7 +86,7 @@
             Notification.requestPermission(function (result) {
                 if (result === 'granted') {
                     navigator.serviceWorker.ready.then(function (registration) {
-                        registration.showNotification(e.record.text);
+                        registration.showNotification(e.record.username + ": " + e.record.text);
                     }); Notification.requestPermission(function (result) {
                     });
                 }
