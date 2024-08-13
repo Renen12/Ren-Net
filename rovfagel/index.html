@@ -82,13 +82,22 @@
     pb.collection('posts').subscribe('*', async function (e) {
         refreshPosts()
         navigator.serviceWorker.register('sw.js');
-        Notification.requestPermission(function (result) {
-            if (result === 'granted') {
-                navigator.serviceWorker.ready.then(function (registration) {
-                    registration.showNotification(e.record.text);
-                });
+        if (e.record.username !== pb.authStore.model.username) {
+            if (Notification.permission == "granted") {
+                notifs = true
+                registration.showNotification(e.record.text);
             }
-        });
+            if (notifs !== true) {
+                Notification.requestPermission(function (result) {
+                if (result === 'granted') {
+                    navigator.serviceWorker.ready.then(function (registration) {
+                        registration.showNotification(e.record.text);
+                    }); Notification.requestPermission(function (result) {
+                    });
+                }
+            });
+            }
+        }
     });
 </script>
 <h1 class="välkommen">Välkommen till rovfågel!</h1>
