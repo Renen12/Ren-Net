@@ -36,7 +36,7 @@
 </head>
 <script src="https://cdn.jsdelivr.net/gh/pocketbase/js-sdk@latest/dist/pocketbase.umd.js"></script>
 <script type="text/javascript">
-        if (localStorage.getItem("loggedin") !== "true") {
+    if (localStorage.getItem("loggedin") !== "true") {
         try {
             alert("Du är inte inloggad!")
             window.location = "signup.html"
@@ -63,7 +63,7 @@
         });
         let postsstring = "";
         records.forEach(post => {
-            postsstring = postsstring + "<br>"  + post.username + ":  " + post.text.replace("<", "&lt").replace(">", "&gt");
+            postsstring = postsstring + "<br>" + post.username + ":  " + post.text.replace("<", "&lt").replace(">", "&gt");
         });
         document.getElementById("messages").innerHTML = postsstring
         document.getElementById("inloggadsom").innerHTML = `Inloggad som ${pb.authStore.model.username || "Inte inloggad"}`
@@ -82,19 +82,27 @@
     }
     pb.collection('posts').subscribe('*', async function (e) {
         refreshPosts()
-        try {
-            navigator.serviceWorker.register('sw.js');
-        if (e.record.username !== pb.authStore.model.username) {
-            Notification.requestPermission(function (result) {
-                if (result === 'granted' && notifs == true) {
-                    navigator.serviceWorker.ready.then(function (registration) {
-                        registration.showNotification(e.record.username + ": " + e.record.text);
-                    });
+        if ('Notification' in window) {
+            var isSafari = navigator.vendor && navigator.vendor.indexOf('Apple') > -1 &&
+                navigator.userAgent &&
+                navigator.userAgent.indexOf('CriOS') == -1 &&
+                navigator.userAgent.indexOf('FxiOS') == -1;
+            if (!isSafari) {
+                try {
+                    navigator.serviceWorker.register('sw.js');
+                    if (e.record.username !== pb.authStore.model.username) {
+                        Notification.requestPermission(function (result) {
+                            if (result === 'granted' && notifs == true) {
+                                navigator.serviceWorker.ready.then(function (registration) {
+                                    registration.showNotification(e.record.username + ": " + e.record.text);
+                                });
+                            }
+                        });
+                    }
+                } catch (error) {
+                    console.warn("Warning: something went wrong with the notifications: " + error);
                 }
-            });
-        }
-        } catch (error) {
-            console.warn("Warning: something went wrong with the notifications: " + error);
+            }
         }
     });
 </script>
