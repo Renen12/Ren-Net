@@ -60,9 +60,6 @@
     let url = "https://ren-net.pockethost.io/"
     const pb = new PocketBase(url);
     pb.autoCancellation(false);
-    window.onload = function() {
-    refreshPosts();
-};
     async function refreshPosts() {
         const records = await pb.collection('posts').getFullList({
             sort: '+created',
@@ -101,6 +98,9 @@
                 navigator.userAgent &&
                 navigator.userAgent.indexOf('CriOS') == -1 &&
                 navigator.userAgent.indexOf('FxiOS') == -1;
+            if (isSafari) {
+                alert("Kompatibilitet är begränsad. Skaffa en telefon som inte är gjord av detta bolag: https://stallman.org/apple.html")
+            }
             if (!isSafari) {
                 try {
                     navigator.serviceWorker.register('sw.js');
