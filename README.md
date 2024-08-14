@@ -30,3 +30,4 @@ Detta är källkoden för [Ren-Net](https://ren-net.net), ett projekt för klass
 - Unikumintegration (om det skapas någon api)
 - Skola24integration (Tror inte det)
 - Förbättringar för rovfågel
+P.S: Det är mer javascript i projektet än github visar, det är bara inbyggt i htmlen!
