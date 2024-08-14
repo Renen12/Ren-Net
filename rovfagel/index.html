@@ -60,6 +60,9 @@
     let url = "https://ren-net.pockethost.io/"
     const pb = new PocketBase(url);
     pb.autoCancellation(false);
+    window.onload = function() {
+    refreshPosts();
+};
     async function refreshPosts() {
         const records = await pb.collection('posts').getFullList({
             sort: '+created',
@@ -116,7 +119,6 @@
             }
         }
     });
-    await refreshPosts();
 </script>
 <h1 class="välkommen">Välkommen till rovfågel!</h1>
 <div class="chatta">
