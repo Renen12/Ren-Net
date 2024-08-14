@@ -13,6 +13,7 @@
                     if (pb.authStore.model.username == undefined) {
                         alert("Ogiltig session!")
                         pb.authStore.clear();
+                        location.reload()
                     }
                     const records = await pb.collection('posts').getFullList({
                         sort: '+created',
@@ -29,8 +30,10 @@
                     window.location = "signup.html"
                 }
             }
+            document.getElementById("inloggadsom").oncontextmenu = () => {
+                window.open("profile.html", "_blank")
+            }
         });
-
 
 
     </script>
@@ -63,8 +66,14 @@
             sort: '+created',
         });
         let postsstring = "";
+        let profilepicelement = ""
         records.forEach(post => {
-            postsstring = postsstring + "<br>" + post.username + ":  " + post.text.replace("<", "&lt").replace(">", "&gt");
+            if (post.profilepicturefilename == "none") {
+                profilepicelement = '<img src="guest.png" width="20" height="20">'
+            } else {
+                profilepicelement = "<img" + ' src="' + "https://ren-net.pockethost.io/api/files/users/" + post.userid + "/" + post.profilepicturefilename + '"' + 'width="' + '50' + '"' + 'height="' + '50' + '"' + ">"
+            }
+            postsstring = postsstring + "<br>" + profilepicelement + post.username + ":  " + post.text.replace("<", "&lt").replace(">", "&gt");
         });
         document.getElementById("messages").innerHTML = postsstring
         document.getElementById("inloggadsom").innerHTML = `Inloggad som ${pb.authStore.model.username || "Inte inloggad"}`
@@ -75,6 +84,8 @@
         const data = {
             "text": msg,
             "username": username,
+            "userid": pb.authStore.model.id,
+            "profilepicturefilename": pb.authStore.model.profilepicture || "none",
         };
 
         const record = await pb.collection('posts').create(data);

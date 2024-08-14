@@ -1,0 +1,21 @@
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: gray;
+    height:0;
+    width:20%;
+    padding-bottom:20%
+}
+.username {
+  margin-left: -200;
+  margin-top: 250;
+}
+.profilepic {
+  margin-top: 200;
+  margin-bottom: 100;
+  margin-right: -200;
+}
+body {
+  background-color: gray;
+}
