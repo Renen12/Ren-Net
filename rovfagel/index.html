@@ -49,6 +49,11 @@
         }
     }
     let notifs = false;
+    const isSupported = () =>
+'Notification' in window &&
+'serviceWorker' in navigator &&
+'PushManager' in window
+if (isSupported()) {
     Notification.requestPermission().then((result) => {
         if (result != "granted") {
             alert("Vi skulle väldigt gärna vilja ge dig information om nya meddelanden!")
@@ -57,6 +62,7 @@
             notifs = true
         }
     });
+}
     let url = "https://ren-net.pockethost.io/"
     const pb = new PocketBase(url);
     pb.autoCancellation(false);
