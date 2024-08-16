@@ -2,12 +2,11 @@
     <title>Rovfågel</title>
     <link rel="stylesheet" href="index.css">
     <meta charset="UTF-8">
-    <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">  
+    <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
-
         $('#inloggadsom').ready(async function () {
             document.getElementById("inloggadsom").onclick = async () => {
                 if (confirm("Vill du ta bort ditt konto?")) {
@@ -41,6 +40,7 @@
 </head>
 <script src="https://cdn.jsdelivr.net/gh/pocketbase/js-sdk@latest/dist/pocketbase.umd.js"></script>
 <script type="text/javascript">
+    let uploadingimg = false;
     if (localStorage.getItem("loggedin") !== "true") {
         try {
             alert("Du är inte inloggad!")
@@ -67,19 +67,27 @@
     let url = "https://ren-net.pockethost.io/"
     const pb = new PocketBase(url);
     pb.autoCancellation(false);
+    let imgelem = ""
     async function refreshPosts() {
         const records = await pb.collection('posts').getFullList({
             sort: '+created',
         });
         let postsstring = "";
         let profilepicelement = ""
+        imgelem = ""
         records.forEach(post => {
             if (post.profilepicturefilename == "none") {
                 profilepicelement = '<img src="guest.png" width="20" height="20">'
             } else {
                 profilepicelement = "<img" + ' src="' + "https://ren-net.pockethost.io/api/files/users/" + post.userid + "/" + post.profilepicturefilename + '"' + 'width="' + '20' + '"' + 'height="' + '20' + '"' + ">"
             }
-            postsstring = postsstring + "<br>" + profilepicelement + post.username + ":  " + post.text.replace("<", "&lt").replace(">", "&gt");
+            if (post.hasimage) {
+                imgelem = `<img src="https://ren-net.pockethost.io/api/files/images/${post.imgid}/${post.imgfilename}" width=100 height=100 onclick="window.open('https://ren-net.pockethost.io/api/files/images/${post.imgid}/${post.imgfilename}', '_blank')" > <br>`
+            }
+
+            postsstring = postsstring + "<br>" + profilepicelement + post.username + ":  " + imgelem + post.text.replace("<", "&lt").replace(">", "&gt");
+            imgelem = ""
+            uploadingimg = false;
         });
         document.getElementById("messages").innerHTML = postsstring
         document.getElementById("inloggadsom").innerHTML = `Inloggad som ${pb.authStore.model.username || "Inte inloggad"}`
@@ -90,14 +98,27 @@
     async function sendmessage() {
         let msg = document.getElementById("chatta").value;
         let username = pb.authStore.model.username;
+        let imgs = "none"
+        if (uploadingimg == true) {
+            const imgdata = {
+                "userid": pb.authStore.model.id,
+                "image": document.getElementById("upload").files[0]
+            };
+            imgs = await pb.collection('images').create(imgdata);
+        }
         const data = {
             "text": msg,
             "username": username,
             "userid": pb.authStore.model.id,
             "profilepicturefilename": pb.authStore.model.profilepicture || "none",
+            "hasimage": uploadingimg,
+            "imgid": imgs.id,
+            "imgfilename": imgs.image
+
         };
         const record = await pb.collection('posts').create(data);
         document.getElementById("chatta").value = "";
+        uploadingimg = false;
         refreshPosts();
     }
 
@@ -108,7 +129,9 @@
             alert(error)
         }
     });
-
+    async function uploadimg() {
+        uploadingimg = true;
+    }
     pb.collection('posts').subscribe('*', async function (e) {
         refreshPosts()
         if ('Notification' in window) {
@@ -142,6 +165,8 @@
 <div class="chatta">
     <input id="chatta" type="text" autocomplete="off" class="chattbox" placeholder="Skriv ditt meddelande här"></input>
     <input type="button" value="Skicka" onclick="sendmessage()" id="skicka" class="skicka">
+    <button onclick="document.getElementById('upload').click(); uploadimg()">Ladda upp bild</button>
+    <input type="file" name="Ladda upp bild" id="upload" value="Ladda upp bild" style="display: none;" accept="image/*">
     </input>
 </div>
 <div class="knappar">
