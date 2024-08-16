@@ -60,7 +60,6 @@
     let url = "https://ren-net.pockethost.io/"
     const pb = new PocketBase(url);
     pb.autoCancellation(false);
-    document.onload = refreshPosts();
     async function refreshPosts() {
         const records = await pb.collection('posts').getFullList({
             sort: '+created',
@@ -69,7 +68,7 @@
         let profilepicelement = ""
         records.forEach(post => {
             if (post.profilepicturefilename == "none") {
-                profilepicelement = '<img src="guest.png" width="20" height="20">'
+                profilepicelement = '<img src="guest.png" width="50" height="50">'
             } else {
                 profilepicelement = "<img" + ' src="' + "https://ren-net.pockethost.io/api/files/users/" + post.userid + "/" + post.profilepicturefilename + '"' + 'width="' + '50' + '"' + 'height="' + '50' + '"' + ">"
             }
@@ -92,6 +91,15 @@
         document.getElementById("chatta").value = "";
         refreshPosts();
     }
+    
+window.addEventListener('load', function() {
+    try {
+        refreshPosts()
+    } catch (error) {
+        alert(error)
+    }
+});
+
     pb.collection('posts').subscribe('*', async function (e) {
         refreshPosts()
         if ('Notification' in window) {
