@@ -50,19 +50,19 @@
     }
     let notifs = false;
     const isSupported = () =>
-'Notification' in window &&
-'serviceWorker' in navigator &&
-'PushManager' in window
-if (isSupported()) {
-    Notification.requestPermission().then((result) => {
-        if (result != "granted") {
-            alert("Vi skulle väldigt gärna vilja ge dig information om nya meddelanden!")
-            notifs = false
-        } else {
-            notifs = true
-        }
-    });
-}
+        'Notification' in window &&
+        'serviceWorker' in navigator &&
+        'PushManager' in window
+    if (isSupported()) {
+        Notification.requestPermission().then((result) => {
+            if (result != "granted") {
+                alert("Vi skulle väldigt gärna vilja ge dig information om nya meddelanden!")
+                notifs = false
+            } else {
+                notifs = true
+            }
+        });
+    }
     let url = "https://ren-net.pockethost.io/"
     const pb = new PocketBase(url);
     pb.autoCancellation(false);
@@ -74,14 +74,17 @@ if (isSupported()) {
         let profilepicelement = ""
         records.forEach(post => {
             if (post.profilepicturefilename == "none") {
-                profilepicelement = '<img src="guest.png" width="50" height="50">'
+                profilepicelement = '<img src="guest.png" width="20" height="20">'
             } else {
-                profilepicelement = "<img" + ' src="' + "https://ren-net.pockethost.io/api/files/users/" + post.userid + "/" + post.profilepicturefilename + '"' + 'width="' + '50' + '"' + 'height="' + '50' + '"' + ">"
+                profilepicelement = "<img" + ' src="' + "https://ren-net.pockethost.io/api/files/users/" + post.userid + "/" + post.profilepicturefilename + '"' + 'width="' + '20' + '"' + 'height="' + '20' + '"' + ">"
             }
             postsstring = postsstring + "<br>" + profilepicelement + post.username + ":  " + post.text.replace("<", "&lt").replace(">", "&gt");
         });
         document.getElementById("messages").innerHTML = postsstring
         document.getElementById("inloggadsom").innerHTML = `Inloggad som ${pb.authStore.model.username || "Inte inloggad"}`
+        document.getElementById("messages").style.width = 2000
+        document.getElementById("messages").style.height = 5
+
     }
     async function sendmessage() {
         let msg = document.getElementById("chatta").value;
@@ -92,19 +95,18 @@ if (isSupported()) {
             "userid": pb.authStore.model.id,
             "profilepicturefilename": pb.authStore.model.profilepicture || "none",
         };
-
         const record = await pb.collection('posts').create(data);
         document.getElementById("chatta").value = "";
         refreshPosts();
     }
-    
-window.addEventListener('load', function() {
-    try {
-        refreshPosts()
-    } catch (error) {
-        alert(error)
-    }
-});
+
+    window.addEventListener('load', function () {
+        try {
+            refreshPosts()
+        } catch (error) {
+            alert(error)
+        }
+    });
 
     pb.collection('posts').subscribe('*', async function (e) {
         refreshPosts()
@@ -149,6 +151,6 @@ window.addEventListener('load', function() {
         onclick="pb.authStore.clear(); localStorage.setItem('loggedin', false); window.location = 'login.html'">Logga
         ut</button>
 </div>
-<div class="messagesdiv">
+<div class="messagesdiv" id="messagesdiv">
     <p id="messages" white-space: pre-line></p>
 </div>
