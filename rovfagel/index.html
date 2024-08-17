@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@simondmc/popup-js@1.4.3/popup.min.js"></script>
     <script>
         $('#inloggadsom').ready(async function () {
             document.getElementById("inloggadsom").onclick = async () => {
@@ -82,7 +83,7 @@
                 profilepicelement = "<img" + ' src="' + "https://ren-net.pockethost.io/api/files/users/" + post.userid + "/" + post.profilepicturefilename + '"' + 'width="' + '20' + '"' + 'height="' + '20' + '"' + ">"
             }
             if (post.hasimage) {
-                imgelem = `<img src="https://ren-net.pockethost.io/api/files/images/${post.imgid}/${post.imgfilename}" width=100 height=100 onclick="window.open('https://ren-net.pockethost.io/api/files/images/${post.imgid}/${post.imgfilename}', '_blank')" > <br>`
+                imgelem = `<img src="https://ren-net.pockethost.io/api/files/images/${post.imgid}/${post.imgfilename}" width=30 height=30 onclick="window.open('https://ren-net.pockethost.io/api/files/images/${post.imgid}/${post.imgfilename}', '_blank')" > <br>`
             }
 
             postsstring = postsstring + "<br>" + profilepicelement + post.username + ":  " + imgelem + post.text.replace("<", "&lt").replace(">", "&gt");
@@ -104,7 +105,14 @@
                 "userid": pb.authStore.model.id,
                 "image": document.getElementById("upload").files[0]
             };
+            const load = new Popup({
+                id: "load",
+                title: "Laddar...",
+                content: `Lämna ett meddelande efter... pipet!`,
+                showImmediately: true,
+            });
             imgs = await pb.collection('images').create(imgdata);
+            load.hide()
         }
         const data = {
             "text": msg,
@@ -116,7 +124,14 @@
             "imgfilename": imgs.image
 
         };
+        const load = new Popup({
+                id: "load",
+                title: "Laddar...",
+                content: `Lämna ett meddelande efter... pipet!`,
+                showImmediately: true,
+            });
         const record = await pb.collection('posts').create(data);
+        load.hide()
         document.getElementById("chatta").value = "";
         uploadingimg = false;
         refreshPosts();

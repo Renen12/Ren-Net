@@ -26,6 +26,7 @@ body {
 .chattbox {
     width: 60vw;
     margin-top: -50;
+    opacity: 50%;
 }
 .messagesdiv {
     display: flex;
