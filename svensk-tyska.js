@@ -1,6 +1,6 @@
 // ändra om det kommer något till prov
 document.body.style.backgroundColor = "#808080"
-let nothing = true
+let nothing = false
 if (nothing) {
     window.location = "finnsingenting.html"
 }
@@ -8,52 +8,17 @@ document.getElementById("byt").onclick = () => {
     window.location = "tyska.html"
 }
 let frågorochsvar = {
-"der Tisch":  "bordet",
-
-"der Stuhl":  "stolen",
-
-"der Bleistift":  "pennan",
-
-"der Spitzer":  "pennvässaren",
-
-"das Buch":  "boken",
-
-"das Heft": "skrivhäftet",
-
-"der Schüler":  "eleven kille",
-
-"die Schülerin":  "eleven tjej",
-
-"die Schultasche":  "skolväskan",
-
-"Der Hase springt": "Haren hoppar",
-
-"Die Katze liebt Mäuse": "Katten älskar möss",
-
-"Die Kuh gibt Milch": "Kon ger mjölk",
-
-"der Hund": "hunden",
-
-"die Katze": "katten",
-"Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag, Sonntag": "Måndag, Tisdag, Onsdag, Torsdag, Fredag, Lördag, Söndag",
-
-"das Wochenende": "Helgen",
-"Tiere": "Djur",
-"im Klassenzimmer": "I klassrummet",
-"Das Jahr": "Året",
-"Familie": "Familj",
-"der Winter, der Frühling, der Sommer, der Herbst": "vintern, våren, sommaren, hösten",
-"die Mutter, der Vater, der Sohn, die Tochter, die Oma, der Opa, der Bruder, die Schwester": "Mamman, Pappan, Sonen, Dottern, Farmorn/Mormorn, Farfarn/Morfarn, Brodern, Systern",
-"Ich habe": "Jag har",
-"Du hast": "Du har",
-"Er hat": "Han har",
-"Ich bin": "Jag är",
-"Du bist": "Du är",
-"Sie ist": "Hon är",
-"Danke": "Tack",
-"Bitte": "Varsågod",
-"Auf Wiedersehen": "På återseende",
-"Tschüss": "Hejdå",
+    "die Schule": "skolan",
+    "die Schulfächer": "skolämnen",
+    "die Kunst": "konsten, bildämnet",
+    "Geschichte": "historia",
+    "Erdkunde": "geografi",
+    "die Stunde": "timmen, lektionen",
+    "Zwillinge": "tvillingar",
+    "Warum nicht?": "Varför inte?",
+    "die Affenhitze": "apvärmen, hettan",
+    "der Eingang": "ingången",
+    "Bis dann!": "Då ses vi då!",
 }
 let fråga = document.getElementById("fråga")
 let index = 1
