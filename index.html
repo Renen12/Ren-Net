@@ -7,7 +7,7 @@
         <title>Välkommen till ren-net!</title>
     </head>
     <body>
-        <ul>
+        <ul id="links" class="links">
             <li><a href="betyg.html"">Betygsuträknare</a></li>
             <li><a href="tyska.html">Tyskaövning</a></li>
             <li><a href="prov.html">Gör ditt eget prov</a></li>
@@ -16,5 +16,8 @@
         <div class="text">
             <img class="logo" src="ren-net.png" alt="ren-net logga">
         </div>
+        <script>
+            document.getElementById("links").style.fontSize = window.innerWidth / 50
+        </script>
     </body>
 </html>
