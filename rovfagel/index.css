@@ -8,11 +8,14 @@ body {
 }
 .chatta {
     height:40px;
-    position: fixed;
+    position: top;
     left: 0;
     bottom: 0%;
     width: 500%;
-    margin-top: -50;
+    margin-top: 200;
+}
+.uploadtext {
+    font-size: xx-small; 
 }
 .knappar {
     display: flex;

@@ -56,7 +56,8 @@
         'serviceWorker' in navigator &&
         'PushManager' in window
     if (isSupported()) {
-        Notification.requestPermission().then((result) => {
+        if (Notification.permission != "granted" && Notification.permission != "default") {
+            Notification.requestPermission().then((result) => {
             if (result != "granted") {
                 alert("Vi skulle väldigt gärna vilja ge dig information om nya meddelanden!")
                 notifs = false
@@ -64,6 +65,7 @@
                 notifs = true
             }
         });
+        }
     }
     let url = "https://ren-net.pockethost.io/"
     const pb = new PocketBase(url);
@@ -175,12 +177,17 @@
             }
         }
     });
+    function scaledocument() {
+        document.getElementById("skicka").style.fontSize = window.innerWidth / 5
+        document.getElementById("uploadtext").style.fontSize = window.innerWidth / 5
+    }
+
 </script>
 <h1 class="välkommen">Välkommen till rovfågel!</h1>
 <div class="chatta">
     <input id="chatta" type="text" autocomplete="off" class="chattbox" placeholder="Skriv ditt meddelande här"></input>
     <input type="button" value="Skicka" onclick="sendmessage()" id="skicka" class="skicka">
-    <button onclick="document.getElementById('upload').click(); uploadimg()">Ladda upp bild</button>
+    <button onclick="document.getElementById('upload').click(); uploadimg()" id="uploadtext" class="uploadtext">Ladda upp bild</button>
     <input type="file" name="Ladda upp bild" id="upload" value="Ladda upp bild" style="display: none;" accept="image/*">
     </input>
 </div>
