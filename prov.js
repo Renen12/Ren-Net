@@ -34,7 +34,7 @@ function onexamstart() {
       frågorochsvar[questionElement.innerText] = answerElement.value;
     }
   });
-  if (Object.keys(frågorochsvar).length <= 0) {
+  if (Object.keys(frågorochsvar).length == 0) {
     alert("Du kan inte starta ett tomt prov.");
     return;
   }
