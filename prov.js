@@ -62,7 +62,7 @@ document.getElementById("ladda").onclick = () => {
   document.getElementById("laddatext").style.display = "block";
   document.getElementById("ladda").innerText = "Ladda";
   laddningsframgång++;
-  if (laddningsframgång >= 2) {
+  if (laddningsframgång == 2) {
     if (document.getElementById("laddatext").value.replace(" ", "") == "") {
       alert("Du kan inte ladda ett tomt prov.");
       return;
