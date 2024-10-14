@@ -20,7 +20,7 @@ Detta är källkoden för [Ren-Net](https://ren-net.net), ett projekt för klass
 ## Folk som har hjälp till med det här
 
 - [@Renen12](https://www.github.com/Renen12)
-
+(Det är bara jag)
 
 ## Saker som är planerade att ha på hemsidan
 

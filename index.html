@@ -1,28 +1,48 @@
 <!DOCTYPE html lang="sv">
-    <head>
-        <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <meta name="keywords" content="Skola, ren-net, Ren-Net, 7D, Tunabergsskolan">
-        <meta name="description" content="Ett projekt för klass 7D på Tunabergsskolan!">
-        <link rel="stylesheet" href="homepage.css">
-        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
-        <meta charset="UTF-8">
-        <title>Välkommen till ren-net!</title>
-    </head>
-    <body>
-        <h1 class="beskrivning">
-            Ett projekt för klass 7D på Tunabergsskolan.
-        </h1>
-        <ul id="links" class="links">
-            <li><a href="betyg.html">Betygsuträknare</a></li>
-            <li><a href="tyska.html">Tyskaövning</a></li>
-            <li><a href="prov.html">Gör ditt eget prov</a></li>
-            <li><a href="rovfagel/index.html">Rovfågel(BETA)</a></li>
-        </ul>
-        <div class="text">
-            <img class="logo" src="ren-net.png" alt="ren-net logga">
-        </div>
-        <script>
-            document.getElementById("links").style.fontSize = window.innerWidth / 50
-        </script>
-    </body>
+
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="keywords" content="Skola, ren-net, Ren-Net, 7D, Tunabergsskolan">
+    <meta name="description" content="Ett projekt för klass 7D på Tunabergsskolan!">
+    <link rel="stylesheet" href="homepage.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
+    <meta charset="UTF-8">
+    <title>Välkommen till ren-net!</title>
+</head>
+
+<body>
+    <h1 class="beskrivning" id="beskrivning">
+        Ett projekt för klass 7D på Tunabergsskolan.
+    </h1>
+    <ul id="links" class="links">
+        <li><a href="betyg.html">Betygsuträknare</a></li>
+        <li><a href="tyska.html">Tyskaövning</a></li>
+        <li><a href="prov.html">Gör ditt eget prov</a></li>
+        <li><a href="rovfagel/index.html">Rovfågel(BETA)</a></li>
+    </ul>
+    <div class="text">
+        <img class="logo" src="ren-net.png" alt="ren-net logga" id="logga">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@simondmc/popup-js@1.4.3/popup.min.js"></script>
+    <script>
+        document.getElementById("links").style.fontSize = window.innerWidth / 50
+        document.getElementById("beskrivning").style.fontSize = window.innerHeight / 50
+        document.getElementById("logga").onclick = () => {
+            const secret = new Popup({
+                id: "shh",
+                content: `<audio src="moon.mp3" controls id="player"> </audio>`,
+                backgroundColor: "rgb(0, 0, 0)",
+            });
+            secret.show();
+            document.getElementById("player").style.opacity = 1;
+            document.getElementById("player").style.marginTop = -65;
+            document.getElementById("player").onplay = () => {
+                document.getElementById("player").style.transition = "opacity 108s";
+                document.getElementById("player").style.opacity = 0;
+            }
+
+        }
+    </script>
+</body>
+
 </html>
