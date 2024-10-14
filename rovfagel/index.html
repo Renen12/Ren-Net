@@ -72,6 +72,11 @@
     pb.autoCancellation(false);
     let imgelem = ""
     async function refreshPosts() {
+        document.getElementById("chatta").onkeydown = (k) => {
+        if (k.keyCode == 13) {
+            sendmessage();
+        }
+    }
         const records = await pb.collection('posts').getFullList({
             sort: '+created',
         });
