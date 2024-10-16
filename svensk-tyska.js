@@ -10,7 +10,7 @@ let index = 1
 let svar = document.getElementById("svar")
 let svara = document.getElementById("svara")
 let felsvar = 1;
-fråga.innerText = `Fråga 1: ${Object.values(frågorochsvar)[0]}`
+fråga.innerText = `Fråga 1 av ${Object.keys(frågorochsvar).length}: ${Object.values(frågorochsvar)[0]}`
 function answer() {
     let svenskasvaret = Object.keys(frågorochsvar)[index - 1 ]
     if ( /* tyska svaret */Object.keys(frågorochsvar)[index - 1 ].toLowerCase().trim() == /* Användarens svar: */ svar.value.toLowerCase().trim()) {
@@ -31,7 +31,7 @@ function answer() {
         alert("Du har svarat på alla frågor.")
         window.location = "index.html"
     }
-    fråga.innerText = `Fråga ${index + 1}: ${Object.values(frågorochsvar)[index]}`
+    fråga.innerText = `Fråga ${index + 1} av ${Object.keys(frågorochsvar).length}: ${Object.values(frågorochsvar)[index]}`
     index++;
     svar.value = ""
 }
