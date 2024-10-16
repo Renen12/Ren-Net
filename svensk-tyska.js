@@ -14,7 +14,6 @@ fråga.innerText = `Fråga 1 av ${Object.keys(frågorochsvar).length}: ${Object.
 function answer() {
     let svenskasvaret = Object.keys(frågorochsvar)[index - 1 ]
     if ( /* tyska svaret */Object.keys(frågorochsvar)[index - 1 ].toLowerCase().trim() == /* Användarens svar: */ svar.value.toLowerCase().trim()) {
-            // orkar inte ändra
     } else {
         if (felsvar == 3) {
             alert(`Fel svar, det rätta svaret var ${svenskasvaret}`)
