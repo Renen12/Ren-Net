@@ -23,24 +23,11 @@
     <div class="text">
         <img class="logo" src="ren-net.png" alt="ren-net logga" id="logga">
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/@simondmc/popup-js@1.4.3/popup.min.js"></script>
     <script>
         document.getElementById("links").style.fontSize = window.innerWidth / 50
         document.getElementById("beskrivning").style.fontSize = window.innerHeight / 50
         document.getElementById("logga").onclick = () => {
-            const secret = new Popup({
-                id: "shh",
-                content: `<audio src="moon.mp3" controls id="player"> </audio>`,
-                backgroundColor: "rgb(0, 0, 0)",
-            });
-            secret.show();
-            document.getElementById("player").style.opacity = 1;
-            document.getElementById("player").style.marginTop = -65;
-            document.getElementById("player").onplay = () => {
-                document.getElementById("player").style.transition = "opacity 20s";
-                document.getElementById("player").style.opacity = 0;
-            }
-
+            window.location = "secret.html"
         }
     </script>
 </body>
