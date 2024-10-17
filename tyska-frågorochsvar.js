@@ -33,7 +33,7 @@ let frågorochsvar = {
     "Wie viele": "Hur många",
     "Wie spät ist es": "Hur mycket är klockan",
     "Wie viel Uhr ist es": "Hur mycket är klockan",
-    "Es ist ein Uhr": "Klockan är ett",
+    "Es ist ein Uhr": "Den är ett",
     "Es ist Viertel nach": "Den är kvart över",
     "Es ist Viertel vor": "Den är kvart i",
     "Es ist halb": "Den är halv",
