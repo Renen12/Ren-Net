@@ -1,4 +1,4 @@
-let nothing = false;
+let nothing = true;
 let frågorochsvar = {
     "eins": "ett",
     "zwei": "två",
