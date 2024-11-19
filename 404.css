@@ -1,12 +1,30 @@
 .content {
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
-.skicka {
-    margin-top: 60;
-    align-items: start;
-    justify-content: flex-end;
-    margin-left: -380;
+
+body {
+    background-color: rgb(60, 60, 60);
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: antiquewhite;
+}
+
+a:visited {
+    color: antiquewhite;
+}
+
+h1 {
+    color: antiquewhite;
+}
+
+button {
+    background-color: rgb(60, 60, 60);
 }

@@ -1,21 +1,19 @@
 <head>
     <title>
-        Vi kan inte hitta vad du söker!
+        Error 404
     </title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/404.css">
+    <link rel="stylesheet" href="404.css">
+    <link rel="shortcut icon" href="404-favicon.ico" type="image/x-icon">
 </head>
+
 <body>
     <div class="content">
-        <h1>
-            Vi kan inte hitta det du söker!
+        <h1 class="title">
+            We sadly can't find what you're looking for.
         </h1>
-        <button value="Skriv om hur arg du är på grund av det här på rovfågel" id="skicka" class="skicka">Klaga via rovfågel</button>
+        <button type="button" class="return"><a href="index.html">Return to Ren-Net</a></button>
+        <button type="button" class="return"><a href="renos/index.html">Return to RenOS</a></button>
     </div>
-    <script>
-        document.getElementById("skicka").onclick = () => {
-            window.location = "/rovfagel/index.html"
-        }
-    </script>
 </body>
