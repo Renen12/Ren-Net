@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<head>
+    <title>
+        RenOS documentation
+    </title>
+    <link rel="stylesheet" href="documentation.css">
+    <link rel="shortcut icon" href="Logo.svg" type="image/x-icon">
+    <meta name="keywords"
+        content="Operating system, Arch Linux, Linux, RenOS, Ren-Net, Ren, OS, RenOS documentation, documentation">
+    <meta name="description" content="The RenOS operating system documentation">
+</head>
+
+<body>
+    <ul style="list-style-type: none; margin: 0; padding:0;" class="navbar">
+        <li>
+            <a href="download.html">Download</a>
+        </li>
+        <li>
+            <a href="downloadguide.html">Download guide</a>
+        </li>
+        <li>
+            <a href="documentation.html">Documentation and installation guide</a>
+        </li>
+        <li>
+            <a href="index.html">Home</a>
+        </li>
+    </ul>
+    <style>
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .navbar a.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+    </style>
+    <div class="content">
+        <h3>
+            What is RenOS?
+        </h3>
+        <p>
+            RenOS is a Linux distribution based on <a href="https://archlinux.org">Arch Linux</a> that
+            favors simplicity
+            over complexity. RenOS uses a desktop enviroment called <a href="https://gnome.org">GNOME</a> that makes
+            computing simple again.
+        </p>
+        <h3>
+            Why base RenOS on Arch Linux?
+        </h3>
+        <p>
+            Arch Linux (and by extension RenOS) is a rolling release distribution which means that updates to vital
+            parts of
+            the operating system such as GNOME are available to users much quicker compared to something like <a
+                href="https://debian.org">Debian</a>.
+        </p>
+        <h3>
+            Some software I need is not installed by default on RenOS, how do I download it?
+        </h3>
+        <p>
+            RenOS comes with some abolutely needed software by default. When you start RenOS for the first time, a
+            window will pop up that will look something like this:
+            <br>
+            <img src="Setup.png">
+            <br>
+            This will allow you to install extra software that's not included by default. If something that you want to
+            install is not in the setup utility, then feel free to request its addition in the RenOS github repository.
+            <br>
+            If your application is not included in the setup utility, you can install it using <a
+                href="https://apps.gnome.org/Software/">GNOME Software</a>.
+            If the application is not bundled as a flatpak (which is the packaging format that's setup on RenOS by
+            default)
+            then it might be found in the <a href="https://archlinux.org/packages/">Arch Linux package repository</a>.
+            <br>
+            Such packages can be installed via the pacman package manager, a guide on how to use pacman is on the <a
+                href="https://wiki.archlinux.org/title/Pacman">Arch Linux Website</a>
+        </p>
+        <h1>
+            Installation guide
+        </h1>
+        <h3>Partitioning your disks</h3>
+        <p>
+            When you first boot from the flash drive an installer window pops up that looks something
+            like this:
+            <br>
+            <img src="screenshots/1.png" width="1000" height="500">
+            <br>
+            Press "Yes" if you haven't setup your partitions before.
+            <br>
+            When you press "Yes" a window will soon pop up that looks something like this:
+            <img src="screenshots/2.png">
+            <br>
+            This is the partition editor <a href="https://gparted.org">GPARTED</a>. It allows you to make
+            partitions(essentially parts of your disks) that are necessary for RenOS to run.
+            <br>
+            In the top right of the GPARTED window there's a dropdown selection that allows you pick the disk that you
+            want to partition. It'll look something like this:
+            <br>
+            <img src="screenshots/3.png">
+            <br>
+            There are multiple types of /dev partitions, /dev/nvme0n1 is an nvme drive, while /dev/sda is the usb that
+            the live installation of RenOS is booted from.
+            <br>
+            This can vary based on hardware, but the general rule of thumb is to identify the disks based on size.
+            <br>
+            Select the disk that you want to install RenOS on. Create a new partition by clicking the little document
+            icon with
+            a blue plus on it.
+            <img src="screenshots/new.png">
+            <br>
+            Okay, now we need to create a few partitions. We start by creating the partition that the operating system
+            is going to live on.
+            <br>
+            This will probably be the biggest partition on your disk. It should be formatted with the file system <a
+                href="https://en.wikipedia.org/wiki/Ext4">ext4</a>. The partition create dialog(when you're done with
+            the partitioning) should look something like this:
+            <br>
+            <img src="screenshots/4.png">
+            <br>
+            Let's now create the swap partition. Swap is basically a partition that gets used when your RAM is full to
+            prevent the system from crashing. This partition should be about eight gigabytes.
+            <br>
+            <img src="screenshots/5.png">
+            <br>
+            Final partition to create is the boot partition. Here's where all the files that the computer needs to be
+            able to start any operating system lives.
+            It should be about one gigabyte in size.
+            <br>
+            <img src="screenshots/6.png">
+            <br>
+            Now press the green checkmark to apply your changes.
+            <br>
+            <img src="screenshots/apply.png">
+            <br>
+
+            Now that the partitions have been created, return back to the installer window and select your partitions.
+            <br>
+            <img src="screenshots/8.png" height="400" width="700">
+            <br>
+            <img src="screenshots/9.png" height="400" width="700">
+            <br>
+            <img src="screenshots/10.png" height="400" width="700">
+            <br>
+        <h3>
+            Grab a cup of tea(or other drink) and wait while the operating system installs.
+        </h3>
+        <br>
+        <h3>
+            Picking region-specific preferences
+        </h3>
+        <img src="screenshots/11.png" height="400" width="700">
+        <br>
+        Now pick your timezone that's going to be used for the installed operating system.
+        <br>
+        <img src="screenshots/12.png" height="400" width="700">
+        <br>
+        After that, pick your locale. This can be a bit confusing. The locales are described in <a
+            href="https://wiki.archlinux.org/title/Locale">this</a> article. Some example locales are:
+        <br>
+        en_US.UTF-8 UTF-8
+        <br>
+        en_GB.UTF-8 UTF-8
+        <br>
+        sv_SE.UTF-8 UTF-8
+        <br>
+        UTF-8 is the most common type of locale, ISO locales are generally not used anymore.
+        <br>
+        <h3>Creating your user account and setting the hostname</h3>
+        <img src="screenshots/13.png" height="400" width="700">
+        <br>
+        Then it's time to pick the name that your computer should use when talking to other computers(such as
+        recieving
+        files via bluetooth, etc.)
+        </p>
+        <img src="screenshots/14.png" height="400" width="700">
+        <br>
+        Choose a name for your user account. This name can't have any spaces in it, any numbers nor have any capital
+        letters.
+        <br>
+        <img src="screenshots/15.png" height="400" width="700">
+        <br>
+        Pick a strong and secure password for your user.
+        <br>
+        <img src="screenshots/16.png" height="400" width="700">
+        <br>
+        Pick a password for the administrator account of the machine. This can be the same as your user password.
+        <br>
+        <img src="screenshots/17.png" height="400" width="700">
+        <br>
+        <h3>
+            Installing the graphics card drivers
+        </h3>
+        <br>
+        Pick the brand of graphics card that you use, simple as that.
+        <img src="screenshots/18.png" height="400" width="700">
+        <br>
+        <h3>
+            Play some supertuxkart on your phone and come back in five minutes...
+        </h3>
+        <br>
+        <img src="screenshots/19.png" height="400" width="700">
+        <br>
+        <h3>
+            Now you're done! Reboot the system and enjoy your new computing experience!
+        </h3>
+        <img src="screenshots/20.png" height="400" width="700">
+        <br>
+        <h1>
+            Restoring RenOS from a broken state
+        </h1>
+        If something's gone wrong with your RenOS installation, then it might be wise to use this feature.
+        What RenOS restore MAY fix:
+        <ul>
+            <li>
+                Your computer UEFI/BIOS tells you that there are no boot devices available (RenOS doesn't start)
+            </li>
+            <li>
+                An update has not been successfully completed and some essential package is corrupt
+            </li>
+        </ul>
+        What RenOS restore probably WON'T fix:
+        <ul>
+            <li>
+                You've uninstalled an important part of your system such as GNOME
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

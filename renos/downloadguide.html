@@ -1,0 +1,136 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="downloadguide.css">
+    <link rel="shortcut icon" href="Logo.svg" type="image/x-icon">
+    <title>How to boot RenOS</title>
+</head>
+
+<body>
+    <ul style="list-style-type: none; margin: 0; padding:0;" class="navbar">
+        <li>
+            <a href="download.html">Download</a>
+        </li>
+        <li>
+            <a href="downloadguide.html">Download guide</a>
+        </li>
+        <li>
+            <a href="documentation.html">Documentation and installation guide</a>
+        </li>
+        <li>
+            <a href="index.html">Home</a>
+        </li>
+    </ul>
+    <style>
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .navbar a.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+    </style>
+    <div class="content">
+        <h1>
+            How to begin the installation process of RenOS
+        </h1>
+        <br>
+        <p>
+            What you've just downloaded is called an <a href="https://en.wikipedia.org/wiki/Optical_disc_image">ISO
+                file</a>.
+            <br>
+            An ISO file is basically a sort of image that can be written to a disk (think of it like a compressed copy
+            of a real disk).
+            <br>
+            Here's what you need to do to be able to install RenOS via this disk image.
+            <br>
+        <h3>
+            Microsoft Windows
+        </h3>
+        Download the app called <a href="https://www.balena.io/etcher">Balena Etcher</a> and follow the setup
+        instructions.
+        <br>
+        When you run the app, this window appears.
+        <br>
+        <img src="screenshots/etcher.png" alt="Balena etcher window screenshot">
+        <br>
+        Press the "Flash from file" button and select the newly downloaded file.
+        <br>
+        Once you've selected the file, press the change button below the disk icon. Then select a USB drive that you
+        don't have any important data on and that you want to use as a RenOS installation/recovery disk.
+        Press the flash button.
+        <br>
+        Now, open the command prompt app as an administrator. Paste this command into the prompt and your computer
+        should reboot into the UEFI/BIOS.
+        <br>
+        <code>
+        shutdown /r /fw /t 1
+        </code>
+        <br>
+        Once you're in your computer's UEFI/BIOS you'll have to change a few things. Every motherboard manufacturer have
+        set up things a little bit differently, so follow along closely.
+        <br>
+        <strong>
+            Find the secure boot option under something like "security". Make sure it's set to off. Then, find the boot
+            order setting and change your USB drive to be on top of that list.
+        </strong>
+        The boot order may look something like this:
+        <ol>
+            <li>
+                Hard disk
+            </li>
+            <li>
+                USB drive
+            </li>
+        </ol>
+        In this case, move the USB drive up one position so that it's first in the boot order so that the list looks
+        something like this:
+        <ol>
+            <li>
+                USB drive
+            </li>
+            <li>
+                Hard disk
+            </li>
+        </ol>
+        USB drive may also be called something like "Generic flash disk" or "Flash disk" in some cases.
+        <br>
+        Now save the changes and exit the BIOS and you should be booting a live version of RenOS.
+        <br>
+        I recommend following the <a href="documentation.html">Installation guide</a> next.
+        </p>
+        <h3>
+            Various Linux distributions
+        </h3>
+        If you already use Linux, then you surely know how to boot a live version of it, right?
+        <br>
+        Follow the steps for Microsoft Windows using your favourite flashing utility and boot RenOS, simple as that.
+        Oh, and the command for systemd-based systems to reboot into the UEFI/BIOS is <code>
+            su -c "systemctl reboot --firmware-setup"
+        </code>
+        <h3>
+            MacOS
+        </h3>
+        Hmm, a mac? RenOS doesn't run on ARM or "Apple Silicon", at least not yet. If enough people want it, then
+        perhaps I'll support it some day.
+    </div>
+</body>
+
+</html>
