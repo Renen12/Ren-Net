@@ -6,6 +6,7 @@ ul {
     position: fixed;
     overflow: auto;
 }
+
 li a {
     display: block;
     color: black;
@@ -17,15 +18,18 @@ li a:hover {
     background-color: #555;
     color: #c2b8d0;
 }
+
 .text {
     text-align: center;
     font-size: 1.9vw;
     color: black;
 }
+
 .logo {
     width: 20vw;
     height: 5vw;
 }
+
 body {
     background-repeat: no-repeat;
     background-size: cover;
@@ -36,6 +40,11 @@ body {
 .links {
     margin-top: 50;
 }
+
 .beskrivning {
     margin-top: -10;
+}
+
+.privacy {
+    margin-top: 500px;
 }

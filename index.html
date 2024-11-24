@@ -41,6 +41,24 @@
         document.getElementById("logga").onclick = () => {
             window.location = "secret.html"
         }
+
+    </script>
+    <div class="privacy" id="privacy">
+        <fieldset>
+            <p>
+                Do you accept <a href="privacy.html">the privacy policy</a> for Ren-Net?
+                <button type="submit" id="accept"
+                    onclick="localStorage.setItem('accepted', 'true');document.getElementById(`privacy`).remove()">Accept</button>
+                <button type="submit" id="deny"><a href="OH_NOES.webp"
+                        style=":visited {color: black;} color: black; text-decoration: none;">Deny</a></button>
+            </p>
+
+        </fieldset>
+    </div>
+    <script>
+        if (localStorage.getItem("accepted") == "true") {
+            document.getElementById("privacy").remove();
+        }
     </script>
 </body>
 
