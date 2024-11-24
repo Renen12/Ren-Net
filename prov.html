@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="sv">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,16 @@
     <link rel="stylesheet" href="prov.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VM2YFGH5DH"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-VM2YFGH5DH');
+</script>
+
 <body>
     <h3>Gör ditt eget prov!</h3>
     <input type="text" name="Fråga" id="fråga-indata">
@@ -18,4 +29,5 @@
     <button class="ladda" id="ladda">Ladda någon annans prov</button>
     <input type="text" name="laddatext" id="laddatext" class="laddatext">
 </body>
+
 </html>

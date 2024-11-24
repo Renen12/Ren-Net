@@ -39,6 +39,16 @@
 
     </script>
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VM2YFGH5DH"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-VM2YFGH5DH');
+</script>
+
 <script src="https://cdn.jsdelivr.net/gh/pocketbase/js-sdk@latest/dist/pocketbase.umd.js"></script>
 <script type="text/javascript">
     let uploadingimg = false;
@@ -58,13 +68,13 @@
     if (isSupported()) {
         if (Notification.permission != "granted" && Notification.permission != "default") {
             Notification.requestPermission().then((result) => {
-            if (result != "granted") {
-                alert("Vi skulle väldigt gärna vilja ge dig information om nya meddelanden!")
-                notifs = false
-            } else {
-                notifs = true
-            }
-        });
+                if (result != "granted") {
+                    alert("Vi skulle väldigt gärna vilja ge dig information om nya meddelanden!")
+                    notifs = false
+                } else {
+                    notifs = true
+                }
+            });
         }
     }
     let url = "https://ren-net.pockethost.io/"
@@ -73,10 +83,10 @@
     let imgelem = ""
     async function refreshPosts() {
         document.getElementById("chatta").onkeydown = (k) => {
-        if (k.keyCode == 13) {
-            sendmessage();
+            if (k.keyCode == 13) {
+                sendmessage();
+            }
         }
-    }
         const records = await pb.collection('posts').getFullList({
             sort: '+created',
         });
@@ -132,11 +142,11 @@
 
         };
         const load = new Popup({
-                id: "load",
-                title: "Laddar...",
-                content: `Lämna ett meddelande efter... pipet!`,
-                showImmediately: true,
-            });
+            id: "load",
+            title: "Laddar...",
+            content: `Lämna ett meddelande efter... pipet!`,
+            showImmediately: true,
+        });
         const record = await pb.collection('posts').create(data);
         load.hide()
         document.getElementById("chatta").value = "";
@@ -192,7 +202,8 @@
 <div class="chatta">
     <input id="chatta" type="text" autocomplete="off" class="chattbox" placeholder="Skriv ditt meddelande här"></input>
     <input type="button" value="Skicka" onclick="sendmessage()" id="skicka" class="skicka">
-    <button onclick="document.getElementById('upload').click(); uploadimg()" id="uploadtext" class="uploadtext">Ladda upp bild</button>
+    <button onclick="document.getElementById('upload').click(); uploadimg()" id="uploadtext" class="uploadtext">Ladda
+        upp bild</button>
     <input type="file" name="Ladda upp bild" id="upload" value="Ladda upp bild" style="display: none;" accept="image/*">
     </input>
 </div>
