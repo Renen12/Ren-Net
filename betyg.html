@@ -1,11 +1,22 @@
 <!DOCTYPE html>
+
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VM2YFGH5DH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-VM2YFGH5DH');
+    </script>
     <link rel="stylesheet" href="betyg.css">
     <title>
         Betygsuträknare
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body>
     <script src="betyg.js"></script>
     <div class="content" id="content">
@@ -13,15 +24,16 @@
             Räkna ut ditt medelbetyg!
         </h1>
         <ul class="list">
-            <li class="hkk">Hemkunskap:</li> <input type="text" id="hkk"  class="hkk-betyg" maxlength="1"> </input>
+            <li class="hkk">Hemkunskap:</li> <input type="text" id="hkk" class="hkk-betyg" maxlength="1"> </input>
             <br>
-            <li class="no">NO:</li> <input type="text"  id="no" class="no-betyg" maxlength="1"> </input>
+            <li class="no">NO:</li> <input type="text" id="no" class="no-betyg" maxlength="1"> </input>
             <br>
             <li class="so">SO: </li> <input type="text" id="so" class="so-betyg" maxlength="1"> </input>
             <br>
             <li class="eng">Engelska: </li> <input type="text" id="eng" class="eng-betyg" maxlength="1"> </input>
             <br>
-            <li class="idh">Idrott och hälsa: </li> <input type="text" id="idh" class="idh-betyg" maxlength="1"> </input>
+            <li class="idh">Idrott och hälsa: </li> <input type="text" id="idh" class="idh-betyg" maxlength="1">
+            </input>
             <br>
             <li class="ma">Matematik: </li> <input type="text" id="ma" class="ma-betyg" maxlength="1"> </input>
             <br>
