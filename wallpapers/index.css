@@ -1,0 +1,41 @@
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: antiquewhite;
+}
+
+body {
+    background-color: rgb(60, 60, 60);
+}
+
+a :hover {
+    color: antiquewhite;
+}
+
+a :visited {
+    color: antiquewhite;
+}
+
+a {
+    text-decoration: none;
+}
+
+a {
+    color: antiquewhite;
+}
+
+.backroomsbtn {
+    background-color: rgb(50, 50, 50);
+    text-shadow: none;
+    box-shadow: none;
+    border: none;
+}
+
+.undertalebtn {
+    background-color: rgb(50, 50, 50);
+    text-shadow: none;
+    box-shadow: none;
+    border: none;
+}
