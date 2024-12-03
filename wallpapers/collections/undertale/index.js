@@ -1,4 +1,4 @@
-let fileNames = ["thesun", "abadtime", "asgore", "butterscotch", "friends", "friskandtoriel", "friskandtoriel2", "happy", "Mettaton", "sansandpapyrus", "theenddog", "finale", "gardens", "Meeting the sun", "ruins", "sans", "theend"];
+let fileNames = ["whopeecushion", "thesun", "abadtime", "asgore", "butterscotch", "friends", "friskandtoriel", "friskandtoriel2", "happy", "Mettaton", "sansandpapyrus", "theenddog", "finale", "gardens", "Meeting the sun", "ruins", "sans", "theend"];
 fileNames.forEach((fileName) => {
     let imgElem = document.createElement("img")
     imgElem.src = fileName + ".png";
