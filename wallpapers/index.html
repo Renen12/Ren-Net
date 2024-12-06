@@ -1,34 +1,38 @@
 <html lang="en">
+    <head>
+        <!-- Google tag (gtag.js) -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-VM2YFGH5DH"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
 
-<head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VM2YFGH5DH"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+            gtag("config", "G-VM2YFGH5DH");
+        </script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>My wallpapers</title>
+        <link rel="stylesheet" href="index.css" />
+    </head>
 
-        gtag('config', 'G-VM2YFGH5DH');
-    </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My wallpapers</title>
-    <link rel="stylesheet" href="index.css">
-</head>
-
-<body>
-    <div class="content">
-        <h2>
-            Wallpapers!
-        </h2>
-        <button type="button" class="backroomsbtn"> <a href="collections/backrooms/index.html">The backrooms
-                collection</a>
-        </button>
-        <button type="button" class="undertalebtn"> <a href="collections/undertale/index.html">The Undertale
-                collection</a></button>
-    </div>
-
-
-</body>
-
+    <body>
+        <div class="content">
+            <h2>Wallpapers!</h2>
+            <button type="button" class="backroomsbtn">
+                <a href="collections/backrooms/index.html"
+                    >The backrooms collection</a
+                >
+            </button>
+            <button type="button" class="undertalebtn">
+                <a href="collections/undertale/index.html"
+                    >The Undertale (and Deltarune) collection</a
+                >
+            </button>
+        </div>
+    </body>
 </html>
