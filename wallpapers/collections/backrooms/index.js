@@ -1,5 +1,32 @@
-let fileNames = [0, 10, 11, 12, 13, 14, 15, 17, 1, 24, 25, 2, 37, 389, 38, 3, 40, 4, 5, 69, 6, 7, 8, 9, 'A safe place'
-];
+let fileNames = [
+    "1",
+    "0",
+    "14",
+    "24",
+    "11",
+    "A safe place",
+    "4",
+    "docks",
+    "37",
+    "9",
+    "8",
+    "7",
+    "25",
+    "12",
+    "389",
+    "40",
+    "5",
+    "3",
+    "6",
+    "2",
+    "38",
+    "15",
+    "17",
+    "69",
+    "13",
+    "10",
+]
+
 fileNames.forEach((fileName) => {
     let imgElem = document.createElement("img")
     imgElem.src = fileName + ".png";
