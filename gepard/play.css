@@ -1,0 +1,31 @@
+.players {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.categories {
+    float: left;
+    margin: 10px;
+}
+
+.questions {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100px;
+    background-color: #2a3698;
+    border-radius: 10px;
+}
+
+.questions[disabled] {
+    opacity: 40%;
+    color: red;
+}
+
+body {
+    background-color: #335c81;
+}

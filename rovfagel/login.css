@@ -22,7 +22,7 @@ body {
     margin-left: -200;
     width: 200;
 }
-.switchtologin {
+.switchtosignup {
     display: flex;
     justify-content: right;
     align-items: flex-start;

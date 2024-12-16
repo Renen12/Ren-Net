@@ -1,0 +1,38 @@
+.nykategori {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.category {
+    float: left;
+    margin: 10px;
+}
+
+
+.spela {
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
+.question {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100px;
+}
+
+.ladda {
+    top: 20;
+    left: 0;
+    position: absolute;
+}
+
+.spara {
+    top: 40;
+    left: 0;
+    position: absolute;
+}

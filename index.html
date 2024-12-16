@@ -10,6 +10,7 @@
 
         gtag('config', 'G-VM2YFGH5DH');
     </script>
+    <script src="festivities.js"></script>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta name="keywords" content="Skola, ren-net, Ren-Net, 7D, Tunabergsskolan">
     <meta name="description" content="Ett projekt för klass 7D på Tunabergsskolan!">
@@ -26,6 +27,7 @@
         Ett projekt för klass 7D på Tunabergsskolan.
     </h1>
     <ul id="links" class="links">
+        <li><a href="gepard/create.html">Jeopardy</a></li>
         <li><a href="betyg.html">Betygsuträknare</a></li>
         <li><a href="tyska.html">Tyskaövning</a></li>
         <li><a href="prov.html">Gör ditt eget prov</a></li>
@@ -36,6 +38,7 @@
         <li>
             <a href="wallpapers/index.html">Bakgrundsbilder</a>
         </li>
+        <li><a href="https://github.com/Renen12/Ren-Net">Källkod</a></li>
     </ul>
     <div class="text">
         <img class="logo" src="ren-net.png" alt="ren-net logga" id="logga">
@@ -44,7 +47,9 @@
         document.getElementById("logga").onclick = () => {
             window.location = "secret.html"
         }
-
+        if (christmas) {
+            document.body.style.backgroundImage = "url(https://weibulls.com/media/articles/img-2015-12-16-3545457.jpg)"
+        }
     </script>
     <div class="privacy" id="privacy">
         <fieldset>
