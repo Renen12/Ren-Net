@@ -29,3 +29,8 @@
 body {
     background-color: #335c81;
 }
+
+.questions:hover {
+    border-color: yellow;
+    border-width: 2px;
+}
