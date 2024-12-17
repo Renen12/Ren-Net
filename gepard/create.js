@@ -27,6 +27,7 @@ async function newCategory(title) {
             questionElement.category = titleElement.innerHTML;
         });
     }
+    categoryDiv.oncontextmenu = () => { categoryDiv.remove(); return;; }
     categoryDiv.appendChild(titleElement);
     for (i = 100; i < 600; i += 100) {
         let q = new questionObject("Inte bestämd", i, "Inte bestämd");
@@ -73,6 +74,10 @@ $("spara").onclick = async () => {
         alert("Du behöver lägga till minst en kategori!");
         return;
     }
+    if (combinedInfo.categories.length <= 15) {
+        alert("Du har laggt till för många kategorier! Högerklicka på de för att ta bort de.");
+        return;
+    }
     navigator.clipboard.writeText(JSON.stringify(combinedInfo));
     alert("Speldatan är kopierad till ditt urklipp!");
 }
@@ -81,6 +86,10 @@ $("spela").onclick = async () => {
     document.querySelectorAll(".category").forEach(category => {
         ct.push(category.querySelector("h3").innerText);
     });
+    if (ct.length <= 15) {
+        alert("Du har laggt till för många kategorier! Högerklicka på de för att ta bort de.");
+        return;
+    }
     let answers = [];
     document.querySelectorAll(".question").forEach((element) => {
         answers.push(element.answer + `|${element.category}|${element.innerText}|${element.question}`);
