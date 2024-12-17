@@ -56,7 +56,16 @@ document.querySelectorAll("div").forEach((element) => {
                     if (value.split("|")[2] == questionButton.innerText && value.split("|")[1] == element.querySelector("h3").innerText) {
                         localStorage.setItem("currentQuestion", value.split("|")[3]);
                         localStorage.setItem("currentAnswer", value.split("|")[0]);
-                        window.open(`question.html`);
+                        if (questionButton.special) {
+                            localStorage.setItem("special", true);
+                        }
+                        let win = window.open(`question.html`);
+                        let timer = setInterval(() => {
+                            if (win != null && win.closed) {
+                                clearInterval(timer);
+                                localStorage.setItem("special", false);
+                            }
+                        }, 700);
                         // The question
                         // alert(value.split("|")[3]);
                         // The correct answer
@@ -101,4 +110,20 @@ $("addPlayer").onclick = () => {
     newPlayerDiv.style.padding = "5px";
     $("addPlayer").style.display = "grid"
     playerFieldSet.appendChild(newPlayerDiv);
+}
+let questions = document.querySelectorAll(".questions")
+function makeBtnSpecial(btn) {
+    btn.special = true;
+}
+for (let i = 0; i <= questions.length - 1; i++) {
+    let question = questions[i];
+    let random = Math.round(Math.random() * 10);
+    if (i == questions.length - 1) {
+        makeBtnSpecial(question)
+        break;
+    }
+    if (random == 2) {
+        makeBtnSpecial(question);
+        break;
+    }
 }

@@ -5,6 +5,9 @@ function $(id) {
     }
     return element;
 }
+if (localStorage.getItem("special") == "true") {
+    alert("Denna fråga är värd dubbelt så mycket poäng!");
+}
 /**
  * 
  * @param {string[]} text 

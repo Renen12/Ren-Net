@@ -23,6 +23,9 @@ async function newCategory(title) {
             name = "Ny kategori";
         }
         titleElement.innerHTML = name;
+        categoryDiv.querySelectorAll(".question").forEach((questionElement) => {
+            questionElement.category = titleElement.innerHTML;
+        });
     }
     categoryDiv.appendChild(titleElement);
     for (i = 100; i < 600; i += 100) {
@@ -93,8 +96,7 @@ $("spela").onclick = async () => {
     }
     window.location = "play.html";
 }
-async function loadGame(obj) {
-    obj = JSON.stringify(obj);
+function loadGame(obj) {
     localStorage.setItem("game", obj);
     window.location = "play.html";
 }
@@ -126,10 +128,13 @@ $("ladda").onclick = async () => {
             ogiltig();
             return;
         }
-        let obj_string = JSON.stringify(obj);
-        loadGame(obj_string)
+
+        loadGame(obj)
     } catch (e) {
         ogiltig();
         return;
     }
+}
+for (let i = 0; i <= 5; i++) {
+    newCategory("Ny kategori");
 }

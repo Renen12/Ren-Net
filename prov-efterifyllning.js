@@ -1,4 +1,3 @@
-// Retrieve and parse the questions and answers from localStorage
 try {
     let temp = JSON.parse(localStorage.getItem("frågorochsvar"));
 } catch (error) {
@@ -25,7 +24,7 @@ document.getElementById("svara").onclick = () => {
     // Check if the user's answer is correct
     if (riktigasvaret.toLowerCase().trim() === svar.value.toLowerCase().trim()) {
         // Correct answer: move to the next question
-        if (index +1 > Object.keys(frågorochsvar).length) {
+        if (index + 1 > Object.keys(frågorochsvar).length) {
             alert("Du har svarat på alla frågor.")
             window.location = "index.html"
         }
