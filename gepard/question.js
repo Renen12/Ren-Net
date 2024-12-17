@@ -6,7 +6,7 @@ function $(id) {
     return element;
 }
 if (localStorage.getItem("special") == "true") {
-    alert("Denna fråga är värd dubbelt så mycket poäng!");
+    alert("Denna fråga är värd dubbelt så mycket poäng, men om ni svarar fel förlorar ni dubbelt så mycket poäng!");
 }
 /**
  * 
