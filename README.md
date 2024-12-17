@@ -10,7 +10,7 @@ Detta är källkoden för [Ren-Net](https://ren-net.net), ett projekt för klass
 - Rovfågel - en chatt/bloggplatform direkt på hemsidan!
 - "Tyskaövning" - Du kan, ja, öva på tyskaglosor/tyskaprov
 - "Gör ditt eget prov" - Öva på någonting eget.
-- Geopard - Spela Jeopardy direkt på hemsidan!
+- Gepard - Spela Jeopardy direkt på hemsidan!
 - Mer saker kommer...
 
 
