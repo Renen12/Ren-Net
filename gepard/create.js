@@ -27,7 +27,12 @@ async function newCategory(title) {
             questionElement.category = titleElement.innerHTML;
         });
     }
-    categoryDiv.oncontextmenu = () => { categoryDiv.remove(); return;; }
+    categoryDiv.oncontextmenu = (event) => {
+        event.preventDefault();
+        categoryDiv.remove();
+        return;
+    }
+
     categoryDiv.appendChild(titleElement);
     for (i = 100; i < 600; i += 100) {
         let q = new questionObject("Inte bestämd", i, "Inte bestämd");
