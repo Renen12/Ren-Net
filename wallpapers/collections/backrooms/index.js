@@ -1,5 +1,6 @@
 let fileNames = [
     "1",
+    "The crimson forest",
     "0",
     "14",
     "24",
@@ -7,9 +8,12 @@ let fileNames = [
     "A safe place",
     "4",
     "docks",
+    "18",
+    "19",
     "37",
     "9",
     "8",
+    "pitfalls",
     "7",
     "25",
     "12",
@@ -21,11 +25,14 @@ let fileNames = [
     "2",
     "38",
     "15",
+    "The crimson forest (2)",
     "17",
+    "9.1",
     "69",
     "13",
     "10",
 ]
+
 
 fileNames.forEach((fileName) => {
     let imgElem = document.createElement("img")
