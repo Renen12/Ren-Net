@@ -142,5 +142,5 @@ $("ladda").onclick = async () => {
     }
 }
 for (let i = 0; i <= 5; i++) {
-    newCategory("Ny kategori");
+    newCategory(`Ny kategori (${i})`);
 }
