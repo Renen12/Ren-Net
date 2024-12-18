@@ -13,6 +13,9 @@ setInterval(() => {
             playersInfo[playerName] = playerParagraph.split(":")[1];
         });
         let mostPoints = Object.values(playersInfo).sort()[Object.values(playersInfo).length - 1];
+        if (mostPoints == 0) {
+            return
+        }
         let index = 0;
         /**
          * @type {string}
