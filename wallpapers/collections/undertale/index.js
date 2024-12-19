@@ -5,6 +5,7 @@ let fileNames = [
     "finale",
     "ruins",
     "friskandtoriel",
+    "thebadguy",
     "friskandtoriel2",
     "sansandpapyrus",
     "theend",
@@ -28,6 +29,7 @@ let fileNames = [
     "gardens",
     "lmao",
 ]
+
 
 
 fileNames.forEach((fileName) => {
