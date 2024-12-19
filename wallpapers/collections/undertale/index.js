@@ -16,6 +16,7 @@ let fileNames = [
     "abadtime",
     "picture",
     "friends",
+    "lancer",
     "asgore",
     "sans",
     "butterscotch",
@@ -29,6 +30,7 @@ let fileNames = [
     "gardens",
     "lmao",
 ]
+
 
 
 
