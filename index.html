@@ -50,6 +50,16 @@
         if (christmas) {
             document.body.style.backgroundColor = "#f90b0b"
         }
+        let e = 0;
+        document.body.onkeydown = (k) => {
+            if (k.key == "e") {
+                if (e >= 1500) {
+                    new Audio("e.wav").play();
+                    e = 0;
+                }
+                e++;
+            }
+        }
     </script>
     <div class="privacy" id="privacy">
         <fieldset>
