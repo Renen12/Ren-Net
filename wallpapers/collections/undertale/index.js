@@ -10,6 +10,7 @@ let fileNames = [
     "friskandtoriel2",
     "rouxls",
     "sansandpapyrus",
+    "The whole gang",
     "theend",
     "happy",
     "finally",
@@ -17,6 +18,7 @@ let fileNames = [
     "thesun",
     "skateboards",
     "abadtime",
+    "spamton",
     "picture",
     "friends",
     "lancer",
@@ -34,9 +36,6 @@ let fileNames = [
     "lmao",
     "minorincovenience",
 ]
-
-
-
 
 
 fileNames.forEach((fileName) => {
