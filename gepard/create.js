@@ -18,9 +18,9 @@ async function newCategory(title) {
     let titleElement = document.createElement("h3");
     titleElement.innerHTML = title;
     titleElement.onclick = async () => {
-        let name = prompt("Vad ska kategorin heta?") || "Ny kategori";
+        let name = prompt("Vad ska kategorin heta?") || `Ny kategori (${document.querySelectorAll(".category").length + 1})`;
         if (name.replaceAll(" ", "") == "") {
-            name = "Ny kategori";
+            name = `Ny kategori (${document.querySelectorAll(".category").length + 1})`;
         }
         titleElement.innerHTML = name;
         categoryDiv.querySelectorAll(".question").forEach((questionElement) => {
@@ -56,10 +56,17 @@ $("kategori").onclick = async () => {
     /**
      * @type {string}
      */
-    let name = prompt("Vad ska kategorin heta?") || "Ny kategori";
+    let name = prompt("Vad ska kategorin heta?") || `Ny kategori (${document.querySelectorAll(".category").length + 1})`;
     if (name.replaceAll(" ", "") == "") {
-        name = "Ny kategori";
+        name = `Ny kategori (${document.querySelectorAll(".category").length + 1})`;
     }
+    document.querySelectorAll(".category").forEach((category) => {
+        let categoryName = category.querySelector("h3").textContent;
+        if (categoryName == name) {
+            alert(`Du kan inte lägga till en kategori med samma namn som ${categoryName}!`);
+            throw new Error("Duplicate question");
+        }
+    });
     newCategory(name);
 }
 $("spara").onclick = async () => {
