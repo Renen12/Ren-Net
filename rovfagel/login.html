@@ -9,7 +9,8 @@
 
 <body>
     <script src="https://cdn.jsdelivr.net/gh/pocketbase/js-sdk@latest/dist/pocketbase.umd.js"></script>
-    <button onclick="window.location = 'signup.html'" value="Skapa ett konto" class="switchtosignup">Skapa ett konto</button>
+    <button onclick="window.location = 'signup.html'" value="Skapa ett konto" class="switchtosignup">Skapa ett
+        konto</button>
     <div class="content" id="content">
         <input type="text" id="username" class="username" placeholder="Användarnamn" autocomplete="off">
         <br>
@@ -28,13 +29,13 @@
             pb.autoCancellation(false);
             try {
                 const authData = await pb.collection('users').authWithPassword(
-                document.getElementById("username").value,
-                document.getElementById("password").value,
-            );
-            localStorage.setItem("loggedin", "true");
-            window.location = "index.html"
+                    document.getElementById("username").value,
+                    document.getElementById("password").value,
+                );
+                localStorage.setItem("loggedin", "true");
+                window.location = "index.html"
             } catch (error) {
-                alert("Fel lösenord/användarnamn!   ");
+                alert("Fel lösenord/användarnamn!");
                 document.getElementById("password").value = "";
             }
         }

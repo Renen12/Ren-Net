@@ -34,7 +34,7 @@
             try {
                 const record = await pb.collection('users').create(data);
             } catch (error) {
-                alert("Du kan inte skapa ett konto som redan finns")
+                alert("Du kan inte skapa ett konto som redan finns/du måste ha ett längre lösenord/du har skrivit in ett ogiltigt användarnamn(du får inte ha å, ä, ö)")
                 return
             }
             const authData = await pb.collection('users').authWithPassword(
