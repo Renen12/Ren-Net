@@ -30,7 +30,7 @@ async function addNewComponent(component) {
  * 
  * @param {string} id 
  */
-function $(id) {
+export function $(id) {
     let element = document.getElementById(id);
     if (element == null) {
         throw new Error(`Element with id ${id} does not exist or has not loaded yet.`);
@@ -42,7 +42,7 @@ function $(id) {
  * @param {string} type 
  * @param {{}[]} attributes 
  */
-function createNewElementWithAttributes(type, attributes, optionalTextContent) {
+export function createNewElementWithAttributes(type, attributes, optionalTextContent) {
     let element = document.createElement(type);
     if (optionalTextContent != null) {
         element.innerText = optionalTextContent;
@@ -51,10 +51,11 @@ function createNewElementWithAttributes(type, attributes, optionalTextContent) {
         element.setAttribute(Object.keys(attributes)[i], Object.values(attributes)[i]);
     }
     document.body.appendChild(element);
+    loadStyleMacros();
     return element;
 }
 // Styling macros
-function loadStyleMacros() {
+export function loadStyleMacros() {
     let bodyChildren = document.body.getElementsByTagName("*");
 
     for (const child of bodyChildren) {
@@ -69,6 +70,19 @@ function loadStyleMacros() {
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
+            }`;
+            document.body.appendChild(renWorksStyling);
+        }
+
+        if (child.getAttribute("flex-centered") == "true" || child.getAttribute("flex-centered") == "") {
+            if (child.parentElement.getAttribute("class") == null) {
+                throw new Error("The parent element to center needs a class name.");
+            }
+            let renWorksStyling = document.createElement("style");
+            renWorksStyling.innerHTML = `.${child.parentElement.className} {
+              display: flex;
+            align-items: center;
+            justify-content: center;
             }`;
             document.body.appendChild(renWorksStyling);
         }
