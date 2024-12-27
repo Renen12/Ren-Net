@@ -80,9 +80,10 @@ export function loadStyleMacros() {
             }
             let renWorksStyling = document.createElement("style");
             renWorksStyling.innerHTML = `.${child.parentElement.className} {
-              display: flex;
-            align-items: center;
-            justify-content: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
             }`;
             document.body.appendChild(renWorksStyling);
         }
