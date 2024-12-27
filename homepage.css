@@ -44,10 +44,3 @@ body {
 .beskrivning {
     margin-top: -10;
 }
-
-.privacy {
-    position: absolute;
-    top: 100vh;
-    transform: translateY(-100%);
-    width: 100%;
-}
