@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta name="keywords" content="Skola, ren-net, Ren-Net, 7D, Tunabergsskolan">
     <meta name="description" content="Ett projekt för klass 7D på Tunabergsskolan!">
-    <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="homepage.css" id="styles">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
 
     <meta charset="UTF-8">
@@ -50,6 +50,31 @@
                 }
                 e++;
             }
+        }
+        if (newYears) {
+            document.body.style.backgroundColor = "#000000";
+            document.body.style.color = "#ffffff";
+            document.getElementById("beskrivning").style.color = "#ffffff";
+            document.getElementById("logga").src = "Ren-Net-NewYear.svg"
+            document.getElementById("links").style.color = "#ffffff";
+            document.getElementById("styles").href = "newYears.css";
+            for (let i = 1; i < 10; i++) {
+                let firework = document.createElement("img");
+                firework.src = "firework.webp"
+                firework.style.position = "absolute";
+                firework.style.top = Math.round(Math.random() * screen.availHeight) + "px";
+                firework.style.left = Math.round(Math.random() * screen.availWidth) + "px";
+                firework.onclick = () => {
+                    setInterval(() => {
+                        let currentTop = parseInt(window.getComputedStyle(firework).top) || 0;
+
+                        currentTop -= 10;
+                        firework.style.top = currentTop;
+                    }, 5);
+                }
+                document.body.appendChild(firework)
+            }
+
         }
     </script>
 </body>
