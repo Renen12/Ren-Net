@@ -1,7 +1,6 @@
 <!DOCTYPE html lang="sv">
 
 <head>
-    <script src="festivities.js"></script>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta name="keywords" content="Skola, ren-net, Ren-Net, 7D, Tunabergsskolan">
     <meta name="description" content="Ett projekt för klass 7D på Tunabergsskolan!">
@@ -35,6 +34,9 @@
         <img class="logo" src="ren-net.png" alt="ren-net logga" id="logga">
     </div>
     <script>
+        let christmas = false;
+        let halloween = false;
+        let newYears = true;
         document.getElementById("logga").onclick = () => {
             window.location = "secret.html"
         }
