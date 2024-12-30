@@ -67,10 +67,22 @@
                 firework.style.top = Math.round(Math.random() * screen.availHeight) + "px";
                 firework.style.left = Math.round(Math.random() * screen.availWidth) + "px";
                 firework.onclick = () => {
-                    setInterval(() => {
+                    let sound = "https://static.wikia.nocookie.net/minecraft_gamepedia/images/6/62/Firework_launch.ogg/revision/latest?cb=20191121203851";
+                    sound = new Audio(sound).play();
+                    setInterval(async () => {
                         let currentTop = parseInt(window.getComputedStyle(firework).top) || 0;
 
                         currentTop -= 10;
+                        if (parseInt(currentTop.toString().replace("-", "")) > screen.availHeight) {
+                            let audio = new Audio("https://static.wikia.nocookie.net/minecraft_gamepedia/images/3/32/Firework_blast.ogg/revision/latest?cb=20191121203910");
+                            audio.play();
+                            setTimeout(() => {
+                                let twinkle = new Audio("https://static.wikia.nocookie.net/minecraft_gamepedia/images/7/76/Firework_twinkle.ogg/revision/latest?cb=20191121203947");
+                                twinkle.play();
+                            }, Math.round(Math.random() * 1000))
+                            firework.remove();
+                        }
+
                         firework.style.top = currentTop;
                     }, 5);
                 }
