@@ -58,7 +58,7 @@ body {
 }
 
 .searchbox {
-    width: 9.899vw;
+    width: 20vw;
     box-sizing: content-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -66,14 +66,14 @@ body {
 
 .searchSelect {
     box-sizing: content-box;
-    width: 9.899vw;
+    width: 20vw;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
 }
 
 .search {
     box-sizing: content-box;
-    width: 9.899vw;
+    width: 20vw;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
 }
