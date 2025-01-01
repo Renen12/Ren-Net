@@ -29,8 +29,7 @@ li a:hover {
 }
 
 .text {
-    font-size: large;
-
+    font-size: 1.2vw;
 }
 
 .content {
@@ -58,6 +57,23 @@ body {
     left: 50%;
 }
 
-.search {
+.searchbox {
     width: 9.899vw;
+    box-sizing: content-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.searchSelect {
+    box-sizing: content-box;
+    width: 9.899vw;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.search {
+    box-sizing: content-box;
+    width: 9.899vw;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }

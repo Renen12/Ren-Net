@@ -18,7 +18,16 @@ setInterval(() => {
 }, 1000);
 function search() {
     let search = $("searchbox").value;
-    window.location = `https://google.com/search?q=${search}`
+    let searchSelect = $("searchSelect");
+    let searchType = searchSelect.value;
+    let url = "";
+    if (searchType == "hela") {
+        url = "https://google.com/search?q=";
+    }
+    if (searchType == "ren-net") {
+        url = "https://google.com/search?q=site:ren-net.net ";
+    }
+    window.location = url + search;
 }
 $("search").onclick = () => {
     search();

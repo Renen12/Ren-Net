@@ -28,10 +28,15 @@
     </ul>
     <div class="content">
         <img src="ren-net.png" alt="Ren-Net logga" class="logga">
-        <p class="text">Välkommen till Ren-Net! <br> Ren-Net är en hemsida skapad för klass 7D på Tunabergsskolan.
+        <p class="text" id="text">Välkommen till Ren-Net! <br> Ren-Net är en hemsida skapad för klass 7D på
+            Tunabergsskolan.
             <br> Hemsidan har massor med trevliga funktioner som att spela Jeopardy, Öva på prov, med mera...
         </p>
-        <input type="search" placeholder="Sök på internet" id="searchbox">
+        <input type="search" placeholder="Sök på..." id="searchbox" class="searchbox">
+        <select name="searchSelect" id="searchSelect" class="searchSelect">
+            <option value="hela">Hela internet</option>
+            <option value="ren-net">Bara Ren-Net</option>
+        </select>
         <button type="submit" id="search" class="search">Sök</button>
     </div>
     <div class="feedback">
