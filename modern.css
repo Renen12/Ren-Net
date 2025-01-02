@@ -26,6 +26,7 @@ li a:hover {
 .logga {
     width: 20vw;
     height: 5vw;
+    margin: 10px;
 }
 
 .text {
@@ -58,7 +59,7 @@ body {
 }
 
 .searchbox {
-    width: 20vw;
+    width: 60vw;
     box-sizing: content-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -66,14 +67,14 @@ body {
 
 .searchSelect {
     box-sizing: content-box;
-    width: 20vw;
+    width: 60vw;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
 }
 
 .search {
     box-sizing: content-box;
-    width: 20vw;
+    width: 60vw;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
 }
