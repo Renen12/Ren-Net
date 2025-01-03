@@ -3,9 +3,7 @@ window.onload = function () {
   let se = document.getElementById("se");
   let march = document.getElementById("march");
   document.body.onmousedown = () => {
-    if (document.getElementById("se") != null) {
-      march.play();
-    }
+    march.play();
   };
   se.onclick = () => {
     se.remove();
