@@ -12,6 +12,7 @@ body {
 
 a :hover {
     color: antiquewhite;
+    cursor: pointer;
 }
 
 a :visited {
@@ -41,6 +42,13 @@ a {
 }
 
 .miscbtn {
+    background-color: rgb(50, 50, 50);
+    text-shadow: none;
+    box-shadow: none;
+    border: none;
+}
+
+.communitybutton {
     background-color: rgb(50, 50, 50);
     text-shadow: none;
     box-shadow: none;
