@@ -11,7 +11,7 @@ function update() {
 }
 setInterval(() => {
     update();
-}, 1000);
+}, 60000);
 function search() {
     let search = $("searchbox").value;
     let searchSelect = $("searchSelect");
@@ -23,7 +23,7 @@ function search() {
     if (searchType == "ren-net") {
         url = "https://google.com/search?q=site:ren-net.net ";
     }
-    window.location = url + search;
+    window.open(url + search, '_blank').focus();
 }
 $("search").onclick = () => {
     search();
