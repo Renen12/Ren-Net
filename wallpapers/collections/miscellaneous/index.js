@@ -1,5 +1,6 @@
 let fileNames = [
     "error",
+    "dragonpriests"
 ]
 
 
