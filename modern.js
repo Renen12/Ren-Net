@@ -11,7 +11,7 @@ function update() {
 }
 setInterval(() => {
     update();
-}, 60000);
+}, 1000);
 function search() {
     let search = $("searchbox").value;
     let searchSelect = $("searchSelect");
