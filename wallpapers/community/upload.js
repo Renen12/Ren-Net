@@ -20,6 +20,6 @@ $("wallpaper").onchange = async () => {
     }).catch((err) => {
         dialog.close();
         $("wallpaper").disabled = false;
-        alert("An error has occured, is your image in the right format(jpg, png, webp)?");
+        alert("An error has occured, is your image in the right format(jpg, png, webp) or is it too large(max 5 megabytes)?");
     });
 }
