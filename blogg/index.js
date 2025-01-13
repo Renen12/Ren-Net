@@ -22,4 +22,5 @@ async function main() {
 }
 main().then(() => {
     console.log("Finished Loading")
+    document.getElementById("loader").remove();
 })

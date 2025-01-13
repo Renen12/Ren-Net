@@ -1,7 +1,7 @@
 import {$, loadStyleMacros} from "/renworks/renWorks.js"
 const url = "https://ren-net.pockethost.io"
 const pb = new PocketBase(url);
-window.onload = async () => {
+async function main() {
     let id = localStorage.getItem("post");
     if (id == null || id === "") {
         window.location = "index.html"
@@ -11,4 +11,9 @@ window.onload = async () => {
     richText.innerHTML = record.text;
     let textDiv = $("text");
     textDiv.appendChild(richText)
+}
+window.onload = async () => {
+    main().then(() => {
+        document.getElementById("loader").remove()
+    })
 }
