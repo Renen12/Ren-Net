@@ -1,0 +1,18 @@
+.postDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.post:hover {
+    cursor: pointer;
+    box-shadow: #252525 2px 2px 4px;
+}
+.post {
+    width: 20vw;
+    border-radius: 10px;
+    border-color: #335c81;
+    background-color: lightgray;
+}
+body {
+    background-color: #335c81;
+}
