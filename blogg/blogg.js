@@ -10,7 +10,5 @@ window.onload = async () => {
     let record = await pb.collection("bloggar").getOne(id);
     richText.innerHTML = record.text;
     let textDiv = $("text");
-    richText.setAttribute("flex-centered", "true");
     textDiv.appendChild(richText)
-    loadStyleMacros()
 }
