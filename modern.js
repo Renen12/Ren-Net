@@ -33,3 +33,9 @@ $("searchbox").onkeydown = (event) => {
         search();
     }
 }
+fetch("https://api.github.com/repos/Renen12/Ren-Net/commits?per_page=1").then(response => response.json()).then(response => {
+   $("latest").innerText = "Senaste uppdatering: " + `"${response[0].commit.message}"`
+    $("latest").onclick = () => {
+       window.open(response[0].html_url, "_blank");
+    }
+});
