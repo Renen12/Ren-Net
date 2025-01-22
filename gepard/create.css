@@ -36,3 +36,6 @@
     left: 0;
     position: absolute;
 }
+body {
+    background-color: #335c81;
+}

@@ -13,7 +13,7 @@ setInterval(() => {
             playersInfo[playerName] = playerParagraph.split(":")[1];
         });
         let mostPoints = Object.values(playersInfo).sort()[Object.values(playersInfo).length - 1];
-        if (mostPoints == 0) {
+        if (mostPoints === 0) {
             return
         }
         let index = 0;
@@ -22,7 +22,7 @@ setInterval(() => {
          */
         let winner;
         Object.keys(playersInfo).forEach((player) => {
-            if (Object.values(playersInfo)[index] == mostPoints) {
+            if (Object.values(playersInfo)[index] === mostPoints) {
                 winner = player;
             }
             index++;
@@ -37,6 +37,10 @@ setInterval(() => {
  * @property {string[]} answers 
  */
 let gameObject = JSON.parse(localStorage.getItem("game"));
+if (gameObject === null) {
+    alert("Something has gone wrong. Please contact us at contact@ren-net.net or open a github issue.");
+    window.location = "https://github.com/Renen12/Ren-Net";
+}
 console.dir(gameObject);
 gameObject.categories.forEach(
     category => {
@@ -52,11 +56,11 @@ document.querySelectorAll("div").forEach((element) => {
         element.className = "categories";
         for (let i = 100; i < 600; i += 100) {
             let questionButton = document.createElement("button");
-            questionButton.innerText = i;
+            questionButton.innerText = i.toString();
             questionButton.className = "questions";
             questionButton.onclick = () => {
                 gameObject.answers.forEach((value) => {
-                    if (value.split("|")[2] == questionButton.innerText && value.split("|")[1] == element.querySelector("h3").innerText) {
+                    if (value.split("|")[2] === questionButton.innerText && value.split("|")[1] === element.querySelector("h3").innerText) {
                         localStorage.setItem("currentQuestion", value.split("|")[3]);
                         localStorage.setItem("currentAnswer", value.split("|")[0]);
                         if (questionButton.special) {
