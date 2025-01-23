@@ -39,8 +39,7 @@ export function $(id) {
 }
 /**
  * 
- * @param {string} type 
- * @param {{}[]} attributes 
+ * @param {string} type  
  */
 export function createNewElementWithAttributes(type, attributes, optionalTextContent) {
     let element = document.createElement(type);
