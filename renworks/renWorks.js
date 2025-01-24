@@ -56,7 +56,6 @@ export function createNewElementWithAttributes(type, attributes, optionalTextCon
 // Styling macros
 export function loadStyleMacros() {
     let bodyChildren = document.body.getElementsByTagName("*");
-
     for (const child of bodyChildren) {
 
         if (child.getAttribute("centered") == "true" || child.getAttribute("centered") == "") {
@@ -70,6 +69,11 @@ export function loadStyleMacros() {
                 left: 50%;
                 transform: translate(-50%, -50%);
             }`;
+            for (const style of document.querySelectorAll("style")) {
+                if (style.innerHTML == renWorksStyling.innerHTML) {
+                    return;
+                }
+            }
             document.body.appendChild(renWorksStyling);
         }
 
@@ -83,7 +87,12 @@ export function loadStyleMacros() {
     justify-content: center;
     align-items: center;
     height: 100vh;
-            }`;
+            }`
+            for (const style of document.querySelectorAll("style")) {
+                if (style.innerHTML == renWorksStyling.innerHTML) {
+                    return;
+                }
+            }
             document.body.appendChild(renWorksStyling);
         }
         if (child.getAttribute("color") != null) {
@@ -94,6 +103,11 @@ export function loadStyleMacros() {
             renWorksStyling.innerHTML = `.${child.className} {
                 color: ${child.getAttribute("color")}
             }`;
+            for (const style of document.querySelectorAll("style")) {
+                if (style.innerHTML == renWorksStyling.innerHTML) {
+                    return;
+                }
+            }
             document.body.appendChild(renWorksStyling)
         }
         if (child.getAttribute("bgcolor") != null) {
@@ -104,6 +118,11 @@ export function loadStyleMacros() {
             renWorksStyling.innerHTML = `.${child.className} {
                 background-color: ${child.getAttribute("bgcolor")}
             }`;
+            for (const style of document.querySelectorAll("style")) {
+                if (style.innerHTML == renWorksStyling.innerHTML) {
+                    return;
+                }
+            }
             document.body.appendChild(renWorksStyling)
         }
     }
