@@ -18,10 +18,10 @@ function search() {
     let searchType = searchSelect.value;
     let url = "";
     if (searchType == "hela") {
-        url = "https://google.com/search?q=";
+        url = "https://google.se/search?q=";
     }
     if (searchType == "ren-net") {
-        url = "https://google.com/search?q=site:ren-net.net ";
+        url = "https://google.se/search?q=site:ren-net.net ";
     }
     window.open(url + search, '_blank').focus();
 }
