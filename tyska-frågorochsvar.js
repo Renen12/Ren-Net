@@ -1,4 +1,4 @@
-let nothing = false;
+let nothing = true;
 let frågorochsvar = {
   "Eigenschaften": "egenskaper",
   "sportlich": "sportig",
