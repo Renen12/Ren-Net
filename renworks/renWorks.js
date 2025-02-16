@@ -49,7 +49,6 @@ export function createNewElementWithAttributes(type, attributes, optionalTextCon
     for (let i = 0; i < Object.keys(attributes).length; i++) {
         element.setAttribute(Object.keys(attributes)[i], Object.values(attributes)[i]);
     }
-    document.body.appendChild(element);
     loadStyleMacros();
     return element;
 }
