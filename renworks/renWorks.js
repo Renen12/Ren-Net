@@ -161,3 +161,17 @@ splitComponents.forEach((component) => {
 export function randItemFromArray(array) {
     return array[Math.floor(Math.random() * array.length)]
 }
+/**
+ * 
+ * @param {string} property 
+ * @param {any[]} array 
+ * @param {string} desiredProperty
+ */
+export function matchingObjectWithPropertyFromArray(property, desiredProperty, array) {
+    for (const object of array) {
+        if (object[property] === desiredProperty) {
+            return object;
+        }
+    }
+    throw new Error("Desired object not found, array: " + array);
+}
