@@ -173,5 +173,98 @@ export function matchingObjectWithPropertyFromArray(property, desiredProperty, a
             return object;
         }
     }
-    throw new Error("Desired object not found, array: " + array);
+    throw new Error("Desired object not found");
+}
+// Dialogue APIS
+/**
+ * 
+ * @param {{
+ * showImmediately: boolean,
+ * center?: boolean,
+ * htmlContents: string
+ * type?: string
+ * heartbeat?: Function
+ * }} config_obj
+ * @returns {{
+ * innerElement: HTMLDialogElement
+ * }}
+ */
+/*
+The type can be WARNING, ERROR or INFO. The heartbeat function is ran every millisecond.
+*/
+export function newDialogue(config_obj) {
+    let colour = "";
+    switch (config_obj.type) {
+        case "WARNING":
+            colour = "yellow"
+            break;
+        case "ERROR":
+            colour = "red";
+            break;
+        case "INFO":
+            colour = "black"
+            break;
+    }
+    if (config_obj.type === null) {
+        colour = "black"
+    }
+    let style = `border-color: ${colour};
+    
+    `
+    if (config_obj.center) {
+        style = style.concat(`
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            `)
+    }
+    /**
+     * @type {HTMLDialogElement} 
+     */
+    let mainDialogue = createNewElementWithAttributes("dialog", {
+        style: style
+    })
+    mainDialogue.innerHTML = config_obj.htmlContents;
+    document.body.appendChild(mainDialogue);
+    if (config_obj.showImmediately) {
+        mainDialogue.showModal();
+    }
+    setInterval(() => {
+        if (config_obj.heartbeat !== null && config_obj.heartbeat !== undefined) {
+            config_obj.heartbeat();
+        }
+    }, 1);
+    return {
+        innerElement: mainDialogue,
+    }
+}
+/**
+ * 
+ * @param {{
+ * innerElement: HTMLDialogElement
+ * }} dialogue 
+ */
+export function killDialogue(dialogue) {
+    dialogue.innerElement.remove();
+}
+/**
+ * 
+ * @param {{
+ * innerElement: HTMLDialogElement
+ * }} dialogue 
+ */
+export function hideDialogue(dialogue) {
+    dialogue.innerElement.close();
+}
+/**
+ * 
+ * @param {{
+* innerElement: HTMLDialogElement
+* }} dialogue
+* @param {string} property
+*@param {any} value
+*/
+export function bindDialogueProperty(dialogue, property, value) {
+    dialogue.innerElement[property] = value;
 }
