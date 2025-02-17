@@ -153,3 +153,11 @@ let splitComponents = componentsAttribute.split(",");
 splitComponents.forEach((component) => {
     addNewComponent(component.replace(" ", ""));
 });
+/**
+ * 
+ * @param {any[]} array 
+ * @returns {any}
+ */
+export function randItemFromArray(array) {
+    return array[Math.floor(Math.random() * array.length)]
+}
