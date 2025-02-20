@@ -167,9 +167,9 @@ export function randItemFromArray(array) {
  * @param {any[]} array 
  * @param {string} desiredProperty
  */
-export function matchingObjectWithPropertyFromArray(property, desiredProperty, array) {
+export function matchingObjectWithPropertyFromArray(property, desiredValue, array) {
     for (const object of array) {
-        if (object[property] === desiredProperty) {
+        if (object[property] === desiredValue) {
             return object;
         }
     }
