@@ -182,7 +182,7 @@ export function matchingObjectWithPropertyFromArray(property, desiredValue, arra
  * showImmediately: boolean,
  * center?: boolean,
  * htmlContents: string
- * type?: string
+ * type?: "WARNING"|"ERROR"|"INFO"
  * heartbeat?: Function
  * }} config_obj
  * @returns {{

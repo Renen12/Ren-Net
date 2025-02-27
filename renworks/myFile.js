@@ -1,4 +1,4 @@
-import { $, bindDialogueProperty, createNewElementWithAttributes, hideDialogue, killDialogue, newDialogue, } from "./renWorks.js";
+import { $, bindDialogueProperty, createNewElementWithAttributes, hideDialogue, killDialogue, newDialogue, moveDivInDirection} from "./renWorks.js";
 let referenceForLater = createNewElementWithAttributes("h2", {
     class: "external"
 }, "renWorks exports some useful functions such as createElementWithAttributes and $(elementId).");
