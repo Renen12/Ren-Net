@@ -268,3 +268,10 @@ export function hideDialogue(dialogue) {
 export function bindDialogueProperty(dialogue, property, value) {
     dialogue.innerElement[property] = value;
 }
+/**
+ * @param {any} item 
+ */
+// Simple logging function
+export function log(item) {
+    console.log(item);
+}
