@@ -39,6 +39,3 @@ fetch("https://api.github.com/repos/Renen12/Ren-Net/commits?per_page=1").then(re
        window.open(response[0].html_url, "_blank");
     }
 });
-$("logga").onclick = () => {
-    window.location = "clown.png"
-}
