@@ -1,4 +1,7 @@
 import { $ } from "https://ren-net.net/renworks/renWorks.js";
+$("logga").onclick = () => {
+    window.location = "game/index.html"
+}
 function update() {
     Date.prototype.getWeek = function () {
         var target  = new Date(this.valueOf());

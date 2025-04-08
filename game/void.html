@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>      
+           
+    </title>
+</head>
+<body>
+    <style>
+        body {
+            background-color: black;
+        }
+    </style>
+    <script>
+        let audio = document.createElement("audio")
+        audio.src = "laugh.wav"
+        try {
+            setTimeout(() => {
+                window.location = "https://ren-net.net"
+            }, 6000);
+            audio.play();
+        } catch (error) {
+            setInterval(() => {
+                audio.play();
+            }, 100); 
+        }
+    </script>
+</body>
+</html>

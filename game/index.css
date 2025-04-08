@@ -1,0 +1,15 @@
+@font-face {
+    font-family: gameFont;
+    src: url(PixelOperatorMonoHB8.ttf);
+}
+.text {
+    font-family: gameFont;
+    color: white;
+}
+body {
+    background-color: black;
+}
+.dialogue {
+    color: white;
+    font-family: gameFont;
+}

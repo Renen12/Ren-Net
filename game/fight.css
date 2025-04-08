@@ -1,0 +1,12 @@
+@font-face {
+    font-family: gameFont;
+    src: url(PixelOperatorMonoHB8.ttf);
+}
+.ph {
+    color: white;
+    font-family: gameFont;
+}
+.fh {
+    color: white;
+    font-family: gameFont;
+}
