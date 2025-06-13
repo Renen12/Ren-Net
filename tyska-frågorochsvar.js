@@ -21,4 +21,5 @@ let frågorochsvar = {
   "Haar": "hår",
   "Geld": "pengar",
   "erzählen": "berätta",
+  "glücklich": "lycklig"
 }
