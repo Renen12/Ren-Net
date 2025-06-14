@@ -23,4 +23,5 @@ let frågorochsvar = {
   "erzählen": "berätta",
   "glücklich": "lycklig",
   "beweis": "bevis",
+  "schrecklich": "hemsk",
 }
