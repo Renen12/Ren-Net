@@ -1,11 +1,11 @@
 import { $ } from "https://ren-net.net/renworks/renWorks.js";
 $("logga").onclick = () => {
-    window.location = "game/index.html"
+    window.location = "supertux/index.html"
 }
 function update() {
     Date.prototype.getWeek = function () {
-        var target  = new Date(this.valueOf());
-        var dayNr   = (this.getDay() + 6) % 7;
+        var target = new Date(this.valueOf());
+        var dayNr = (this.getDay() + 6) % 7;
         target.setDate(target.getDate() - dayNr + 3);
         var firstThursday = target.valueOf();
         target.setMonth(0, 1);
@@ -13,7 +13,7 @@ function update() {
             target.setMonth(0, 1 + ((4 - target.getDay()) + 7) % 7);
         }
         return 1 + Math.ceil((firstThursday - target) / 604800000);
-    }    
+    }
     let date = new Date();
     let hour = date.getHours();
     let minute = date.getMinutes();
@@ -48,8 +48,8 @@ $("searchbox").onkeydown = (event) => {
     }
 }
 fetch("https://api.github.com/repos/Renen12/Ren-Net/commits?per_page=1").then(response => response.json()).then(response => {
-   $("latest").innerText = "Senaste uppdatering: " + `"${response[0].commit.message}"`
+    $("latest").innerText = "Senaste uppdatering: " + `"${response[0].commit.message}"`
     $("latest").onclick = () => {
-       window.open(response[0].html_url, "_blank");
+        window.open(response[0].html_url, "_blank");
     }
 });
