@@ -24,4 +24,5 @@ let frågorochsvar = {
   "glücklich": "lycklig",
   "beweis": "bevis",
   "schrecklich": "hemsk",
+  "teuer": "dyr"
 }
