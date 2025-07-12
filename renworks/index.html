@@ -1,14 +1,31 @@
 <!DOCTYPE html>
+<html lang="sv">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>renWorks demo</title>
-    <script src="renWorks.js" defer components="text" id="renWorks" type="module"></script>
+    <title>renWorks</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
-    <script type="module" src="myFile.js"></script>
+    <button onclick="window.location = '../index.html'"><a href="../index.html" style="text-decoration: none; color: black;">Tillbaka</a></button>
+    <div class="main">
+        <div class="buttons">
+            <div class="text">
+                <h1>renWorks - ett <i>användbart</i> Javascript-ramverk.</h1>
+                <p>renWorks är ett Javascript-ramverk som underlättar tillverkandet av interaktiva hemsidor.</p>
+            </div>
+            <button class="docs" onclick="window.location = 'v2/docs.html'"><a href="v2/docs.html"
+                    style="text-decoration: none;">Läs
+                    dokumentationen</a></button>
+            <button class="quickstart" onclick="window.location = 'v2/quickstart.html'"><a href="v2/quickstart.html"
+                    style="text-decoration: none;">Börja med
+                    renWorks</a></button>
+        </div>
+    </div>
+
+
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-import { $ } from "https://ren-net.net/renworks/renWorks.js";
+import { $ } from "./renworks/v1/renWorks.js";
 $("logga").onclick = () => {
     window.location = "supertux/index.html"
 }

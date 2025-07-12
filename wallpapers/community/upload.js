@@ -1,4 +1,4 @@
-import { $ } from "https://ren-net.net/renworks/renWorks.js";
+import { $ } from "../../renworks/v1/renWorks.js";
 let url = "https://ren-net.pockethost.io/"
 const pb = new PocketBase(url);
 $("wallpaper").onchange = async () => {

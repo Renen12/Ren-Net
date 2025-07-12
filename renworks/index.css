@@ -1,0 +1,32 @@
+:root {
+    --background: black;
+}
+.docs {
+    border-width: 5px;
+    border-color: black;
+    border-radius: 10px;
+}
+.docs a {color: black;}
+.quickstart {
+    border-width: 5px;
+    border-color: black;
+    border-radius: 10px;
+    background-color: var(--background);
+}
+.quickstart a {color: white;}
+.buttons {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+}
+.buttons button {
+    height: 50px;
+}
+.buttons button :hover {
+    cursor: pointer;
+}
+body {
+    background-color:var(--background);
+}
+.text {
+    color: whitesmoke;
+    text-shadow: 17px 44px 9px rgba(255,255,255,0.6);
+}
