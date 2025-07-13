@@ -395,8 +395,8 @@ setTimeout(() => {
 
    */
   connect(subscriber) {
-    return new Proxy({data: ""}, {
-      set: (target,key, value)  => {
+    return new Proxy({ data: "" }, {
+      set: (target, key, value) => {
         target[key] = value;
         subscriber(value);
         return true;
