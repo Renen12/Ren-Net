@@ -2,7 +2,7 @@ P.S: Det är mer javascript i projektet än vad github visar, det är bara inbyg
 # Ren-Net
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20-yellow.svg)](https://opensource.org/licenses/)
 
-Detta är källkoden för [Ren-Net](https://ren-net.net), ett projekt för klass 7D på tunabergsskolan.
+Detta är källkoden för [Ren-Net](https://ren-net.net), ett projekt för klass 8D på tunabergsskolan.
 
 
 
