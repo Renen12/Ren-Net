@@ -1,28 +1,13 @@
 let nothing = false;
 let frågorochsvar = {
-  "Jungen": "pojkar",
-  "gelb": "gul",
-  "böse": "arg",
-  "müde": "trött",
-  "höflich": "hövlig",
-  "durstig": "törstig",
-  "Schumacher": "skomakare",
-  "Urlaub": "semester",
-  "hübsch": "vacker",
-  "Ecke": "hörn",
-  "wahr": "sann",
-  "Pferd": "häst",
-  "Zeit": "tid",
-  "Angst": "rädsla",
-  "Krank": "sjuk",
-  "alt": "gammal",
-  "bäcker": "bagare",
-  "Tier": "djur",
-  "Haar": "hår",
-  "Geld": "pengar",
-  "erzählen": "berätta",
-  "glücklich": "lycklig",
-  "beweis": "bevis",
-  "schrecklich": "hemsk",
-  "teuer": "dyr"
-}
+  "Hur går det för dig?": "Wie geht's dir?",
+  "Att vandra är långtråkigt.": "Wandern ist langweilig.",
+  "Det var inget särskilt.": "Das war nichts Besonderes.",
+  "Vi har fortfarande lov.": "Wir haben noch Ferien",
+  "Peter hade en cykelolycka.": "Peter hatte einen Radunfall.",
+  "Kanske kommer hon nästa vecka.": "Vielleicht kom sie nächste Woche.",
+  "Nu är huset färdigt.": "Jetzt ist das Haus fertig.",
+  "För två veckor sedan var vi i Ulm.": "Vor zwei Wochen waren wir in Ulm.",
+  "Jag måste absolut träffa din katt.": "Ich muss unbedingt deine Katze treffen"
+};
+
