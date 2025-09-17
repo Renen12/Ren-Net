@@ -115,6 +115,8 @@ $("spara").onclick = async () => {
     }
     navigator.clipboard.writeText(JSON.stringify(combinedInfo));
     alert("Speldatan är kopierad till ditt urklipp!");
+    document.lastSave = JSON.stringify(combinedInfo)
+    loadGame(true)
 }
 $("spela").onclick = async () => {
     let ct = [];
@@ -136,16 +138,15 @@ $("spela").onclick = async () => {
     }
     window.location = "play.html";
 }
-function loadGame(obj) {
-    localStorage.setItem("game", obj);
-    window.location = "play.html";
-}
-function ogiltig() {
-    alert("Ogiltig speldata!");
-}
-$("ladda").onclick = async () => {
+function loadGame(skip) {
     try {
-        let obj = prompt("", "Klistra in speldatan här!");
+        let obj
+        if (!skip) {
+            obj = prompt("", "Klistra in speldatan här!");
+        }
+        else {
+            obj = document.lastSave
+        }
         if (obj == "") {
             ogiltig();
             throw new Error("Empty string object")
@@ -213,6 +214,12 @@ $("ladda").onclick = async () => {
         throw new Error(e)
 
     }
+}
+function ogiltig() {
+    alert("Ogiltig speldata!");
+}
+$("ladda").onclick = async () => {
+    loadGame(false);
 }
 for (let i = 0; i < 5; i++) {
     newCategory(`Ny kategori (${i + 1})`);
