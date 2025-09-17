@@ -233,6 +233,7 @@ export let renWorks = {
    *
    * @param {{}[]} array
    * @param {string[]} propertyAndDesiredValue
+
    */
   // ["name", "test"] -> Look for property "name" with value "test"
   matchingObj(array, propertyAndDesiredValue) {

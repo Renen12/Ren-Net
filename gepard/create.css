@@ -4,6 +4,13 @@
     right: 0;
 }
 
+#preview {
+    position: absolute;
+    top: 0;
+    right: 200px;
+    background-color: rebeccapurple;
+}
+
 .category {
     float: left;
     margin: 10px;
@@ -36,6 +43,7 @@
     left: 0;
     position: absolute;
 }
+
 body {
     background-color: #335c81;
 }
