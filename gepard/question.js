@@ -25,12 +25,6 @@ if (question == "undefined") {
 if (answer == "undefined") {
     answer = "Inte bestämd"
 }
-if (question[question.length - 1] != "?" && question != "Inte bestämd") {
-    question += "?";
-}
-if (answer[answer.length - 1] != "?" && answer != "Inte bestämd") {
-    answer += "?";
-}
 $("question").innerText = question;
 document.onkeydown = (k) => {
     if (k.key == " ") {
