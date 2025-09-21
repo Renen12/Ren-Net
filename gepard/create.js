@@ -66,8 +66,16 @@ async function newCategory(title) {
 
                 return;
             }
-            q.question = prompt("Vad ska själva frågan vara?") || "Inte bestämd";
-            q.answer = prompt("Vad ska \"svaret\" på frågan vara?") || "Inte bestämd";
+            let prompt_1 = renWorks.Result(prompt("Vad ska själva frågan vara?"));
+            let prompt_2 = renWorks.Result(prompt("Vad ska \"svaret\" på frågan vara?"));
+            try {
+                prompt_1.unwrap();
+                prompt_2.unwrap();
+            } catch (error) {
+                return;
+            }
+            q.question = prompt_1.unwrap();
+            q.answer = prompt_2.unwrap();
             btn.answer = q.answer;
             btn.question = q.question;
         }
