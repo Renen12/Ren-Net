@@ -1,8 +1,4 @@
 import { renWorks } from "../renworks/v2/renWorks.js"
-let isPreviewing = false;
-function $(id) {
-    return document.getElementById(id);
-}
 class questionObject {
     constructor(answer, points, question) {
         this.points = points;
@@ -10,6 +6,16 @@ class questionObject {
         this.question = question;
     }
 }
+let isPreviewing = false;
+let url = new URL(document.location.toString());
+let toLoad = url.searchParams.get("game");
+if (toLoad) {
+    loadGame(true, toLoad);
+}
+function $(id) {
+    return document.getElementById(id);
+}
+
 
 function setCursor(cursor) {
     for (const c of document.querySelectorAll("div")) {
@@ -124,7 +130,7 @@ $("spara").onclick = async () => {
     navigator.clipboard.writeText(JSON.stringify(combinedInfo));
     alert("Speldatan är kopierad till ditt urklipp!");
     document.lastSave = JSON.stringify(combinedInfo)
-    loadGame(true)
+    loadGame(true, null)
 }
 $("spela").onclick = async () => {
     let ct = [];
@@ -146,15 +152,19 @@ $("spela").onclick = async () => {
     }
     window.location = "play.html";
 }
-function loadGame(skip) {
+function loadGame(skip, optionalObj) {
     try {
         let obj
         if (!skip) {
             obj = prompt("", "Klistra in speldatan här!");
         }
-        else {
+        else if (!optionalObj && skip) {
             obj = document.lastSave
         }
+        else if (optionalObj && skip) {
+            obj = optionalObj;
+        }
+        console.dir(obj)
         if (obj == "") {
             ogiltig();
             throw new Error("Empty string object")
@@ -180,7 +190,6 @@ function loadGame(skip) {
         // }
         let parsed = JSON.parse(obj);
         if (parsed) {
-            console.dir(parsed)
             let answers = parsed.answers;
             let categoriesParsed = parsed.categories;
             for (const previousCategory of document.querySelectorAll("div")) {
@@ -227,8 +236,10 @@ function ogiltig() {
     alert("Ogiltig speldata!");
 }
 $("ladda").onclick = async () => {
-    loadGame(false);
+    loadGame(false, null);
 }
-for (let i = 0; i < 5; i++) {
-    newCategory(`Ny kategori (${i + 1})`);
+if (!toLoad) {
+    for (let i = 0; i < 5; i++) {
+        newCategory(`Ny kategori (${i + 1})`);
+    }
 }
