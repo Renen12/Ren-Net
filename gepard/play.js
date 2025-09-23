@@ -1,36 +1,13 @@
+import { renWorks } from "../renworks/v2/renWorks.js"
 function $(id) {
     return document.getElementById(id);
 }
-setInterval(() => {
-    if (Array.from(document.querySelectorAll(".questions")).every(btn => btn.disabled)) {
-        /**
-         * @type {Object<string, number>}
-         */
-        let playersInfo = {};
-        $("players").querySelectorAll("div").forEach((element) => {
-            let playerParagraph = element.querySelector("p").innerText;
-            let playerName = playerParagraph.split(":")[0];
-            playersInfo[playerName] = playerParagraph.split(":")[1];
-        });
-        let mostPoints = Object.values(playersInfo).sort()[Object.values(playersInfo).length - 1];
-        if (mostPoints === 0) {
-            return
-        }
-        let index = 0;
-        /**
-         * @type {string}
-         */
-        let winner;
-        Object.keys(playersInfo).forEach((player) => {
-            if (Object.values(playersInfo)[index] === mostPoints) {
-                winner = player;
-            }
-            index++;
-        });
-        localStorage.setItem("winner", winner || "Ingen!");
-        window.location = "winner.html"
+renWorks.beseechDropDown(["1", "2", "3", "4", "5", "6", "7"], "Hur många lag vill du ha?", (answer) => {
+    let asNum = parseInt(answer);
+    for (let i = 0; i < asNum; i++) {
+        createPlayer("Lag " + (i + 1));
     }
-}, 1000);
+});
 /**
  * @typedef {Object} gameObject
  * @property {string[]} categories 
@@ -85,19 +62,25 @@ document.querySelectorAll("div").forEach((element) => {
         }
     }
 });
-$("addPlayer").onclick = () => {
-    let name = prompt("Vad ska spelarens namn vara?") || "Ny spelare";
-    if (name.replaceAll(" ", "") == "") {
-        name = "Ny spelare";
+// If name is null, ask the player
+function createPlayer(name_p) {
+    let name = "";
+    if (!name_p) {
+        name = prompt("Vad ska spelarens namn vara?") || "Ny spelare";
+        if (name.replaceAll(" ", "") == "") {
+            name = "Ny spelare";
+        }
     }
+    else {
+        name = name_p
+    }
+
     let playerFieldSet = $("players");
     let score = 0;
     let newPlayerDiv = document.createElement("div");
     let addScoreButton = document.createElement("button");
     let removeScoreButton = document.createElement("button");
     let playerNameElement = document.createElement("p");
-    playerNameElement.style.border = "1px solid black";
-    playerNameElement.style.color = "white";
     playerNameElement.innerText = name;
     addScoreButton.innerText = "+";
     removeScoreButton.innerText = "-";
@@ -113,10 +96,11 @@ $("addPlayer").onclick = () => {
     newPlayerDiv.appendChild(playerNameElement);
     newPlayerDiv.appendChild(addScoreButton);
     newPlayerDiv.appendChild(removeScoreButton);
-    newPlayerDiv.style.float = "left";
-    newPlayerDiv.style.padding = "5px";
     $("addPlayer").style.display = "grid"
     playerFieldSet.appendChild(newPlayerDiv);
+}
+$("addPlayer").onclick = () => {
+    createPlayer(null);
 }
 let questions = document.querySelectorAll(".questions")
 function makeBtnSpecial(btn) {

@@ -1,8 +1,33 @@
 .players {
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    display: flex;
+    left: 15%;
+    bottom: 1px;
+    transform: translate(-50%, -50%);
+    max-height: 50px;
+    max-width: 125px;
+
+}
+
+.players div {
+    float: right;
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    margin: 5px 5px 5px 5px;
+}
+
+.players div button {
+    margin-top: 5px;
+}
+
+
+#addPlayer {
+    position: absolute;
+    left: 1px;
+    bottom: 1px;
 }
 
 .categories {
