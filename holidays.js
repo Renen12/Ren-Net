@@ -1,20 +1,11 @@
-let christmas = false;
+let christmas = true;
 let halloween = false;
 let newYears = false;
 
 if (christmas) {
     document.body.style.backgroundColor = "#f90b0b"
 }
-let e = 0;
-document.body.onkeydown = (k) => {
-    if (k.key == "e") {
-        if (e >= 1500) {
-            new Audio("e.wav").play();
-            e = 0;
-        }
-        e++;
-    }
-}
+
 if (newYears) {
     document.body.style.backgroundColor = "#000000";
     document.body.style.color = "#ffffff";
@@ -28,10 +19,14 @@ if (newYears) {
         firework.onclick = () => {
             let sound = "Firework_launch.ogg";
             sound = new Audio(sound).play();
-            setInterval(async () => {
-                let currentTop = parseInt(window.getComputedStyle(firework).top) || 0;
 
+            setInterval(async () => {
+
+                let currentTop = parseInt(window.getComputedStyle(firework).top) || 0;
+                console.log("a" + currentTop)
                 currentTop -= 10;
+                console.log("b" + currentTop)
+
                 if (parseInt(currentTop.toString().replace("-", "")) > screen.availHeight) {
                     let audio = new Audio("Firework_blast.ogg");
                     audio.play();
